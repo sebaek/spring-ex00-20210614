@@ -8,15 +8,29 @@ import org.springframework.stereotype.Component;
 public class Bag {
 
 	private Book book;
+	
+	public Bag() {
+		
+	}
+	
+	@Autowired
+	public Bag(Book book) {
+		this.book = book;
+	}
 
 	@Override
 	public String toString() {
 		return "Bag [book=" + book + "]";
 	}
 	
-	@Autowired
+//	@Autowired
 	public void setBook(Book book) {
 		this.book = book;
 	}
 	
 }
+
+
+
+
+
