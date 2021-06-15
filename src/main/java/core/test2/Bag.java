@@ -9,11 +9,7 @@ public class Bag {
 
 	private Book book;
 	
-	public Bag() {
-		
-	}
-
-	@Autowired
+//	@Autowired
 	public Bag(Book book) {
 		this.book = book;
 	}
