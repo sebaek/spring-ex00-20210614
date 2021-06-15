@@ -17,6 +17,9 @@ public class App1 {
 		
 		Object o2 = context.getBean("leg");
 		System.out.println(o2);
+		
+		Object o3 = context.getBean("chair");
+		System.out.println(o3);
 	}
 }
 

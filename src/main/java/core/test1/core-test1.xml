@@ -10,4 +10,8 @@
 
 <bean id="leg" class="core.test1.Leg"></bean>
 
+<bean id="chair" class="core.test1.Chair">
+	<constructor-arg ref="leg"></constructor-arg>
+</bean>
+
 </beans>
