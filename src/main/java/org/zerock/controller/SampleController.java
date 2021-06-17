@@ -83,6 +83,7 @@ public class SampleController {
 	}
 	
 	// 137쪽 ex03
+//	http://localhost:8080/controller/sample/ex03?title=aa&dueDate=2020-03-03
 	@GetMapping("/ex03")
 	public String ex03(TodoDTO todo) {
 		log.info("todo:" + todo);
