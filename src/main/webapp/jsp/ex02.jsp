@@ -20,9 +20,28 @@
 		
 		<input type="submit" value="전송">
 	</form>
+	
+	<hr>
+	<form action="<%=request.getContextPath() %>/ex02/sub08" method="post">
+		<input type="checkbox" name="fav" value="bts">bts <br>
+		<input type="checkbox" name="fav" value="red">red <br>
+		<input type="checkbox" name="fav" value="twice">twice <br>
+		<input type="checkbox" name="fav" value="psy">psy <br>
+		
+		<input type="submit" value="전송">
+	</form>
 </div>
 </body>
 </html>
+
+
+
+
+
+
+
+
+
 
 
 
