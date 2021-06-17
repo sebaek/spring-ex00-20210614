@@ -18,6 +18,11 @@
 		<input type="submit" value="post 전송">
 	</form>
 	
+	<hr>
+	<form action="" method="">
+		<p>sub06 post</p>
+		<input type="submit" value="post 전송">
+	</form>
 </div>
 </body>
 </html>
