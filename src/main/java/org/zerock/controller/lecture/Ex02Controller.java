@@ -1,5 +1,7 @@
 package org.zerock.controller.lecture;
 
+import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.request;
+
 import javax.servlet.http.HttpServletRequest;
 
 import org.springframework.stereotype.Controller;
@@ -43,7 +45,33 @@ public class Ex02Controller {
 		log.info(idParam);
 		log.info(ageParam);
 	}
+	
+	@RequestMapping("/sub05")
+	public void method05(@RequestParam String id, 
+			@RequestParam String age) {
+//		String id = request.getParameter("id");
+//		String age = request.getParameter("age");
+		
+		log.info("ex02 sub05 method");
+		log.info(id);
+		log.info(age);
+	}
+	
+	
+	@RequestMapping("/sub06")
+	public void method06(@RequestParam int age) {
+//		int age = Integer.parseInt(request.getParameter("age"));
+		
+		log.info("ex02 sub06 method");
+		log.info(age);
+	}
+	
+	
+	
 }
+
+
+
 
 
 
