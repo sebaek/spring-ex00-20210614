@@ -19,7 +19,7 @@
 	</form>
 	
 	<hr>
-	<form action="" method="">
+	<form action="<%= request.getContextPath() %>/ex01/sub06" method="post">
 		<p>sub06 post</p>
 		<input type="submit" value="post 전송">
 	</form>
