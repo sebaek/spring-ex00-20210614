@@ -28,6 +28,11 @@ public class SampleController {
 	public void basicGet2() {
 		log.info("basic get only get....................");
 	}
+	
+	@RequestMapping({"/basic3", "/basic4"})
+	public void basic3() {
+		log.info("basic3, basic4 ..............");
+	}
 }
 
 
