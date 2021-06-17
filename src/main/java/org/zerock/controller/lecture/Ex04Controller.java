@@ -17,6 +17,7 @@ import lombok.extern.log4j.Log4j;
 @Log4j
 public class Ex04Controller {
 
+	//http://localhost:8080/controller/ex04/sub01?date=2020-01-01
 	@RequestMapping("/sub01")
 	public void method01(@RequestParam String date) {
 		log.info("ex04, sub01 method");
@@ -24,6 +25,7 @@ public class Ex04Controller {
 		log.info(date);
 	}
 	
+	// http://localhost:8080/controller/ex04/sub02?date=2020-01-01
 	@RequestMapping("/sub02")
 	public void method02(@RequestParam Date date) {
 		log.info("ex04, sub02 method");
