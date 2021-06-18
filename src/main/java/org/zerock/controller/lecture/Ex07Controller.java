@@ -42,6 +42,17 @@ public class Ex07Controller {
 		
 		return "{\"id\":" + "\"" + user.getId() + "\", " + "\"age\":" + user.getAge() + "}";
 	}
+	
+	@RequestMapping("/sub04")
+	public @ResponseBody User method04() {
+		log.info("ex07, sub04 method");
+		
+		User user = new User();
+		user.setId("trump");
+		user.setAge(88);
+		
+		return user;
+	}
 }
 
 
