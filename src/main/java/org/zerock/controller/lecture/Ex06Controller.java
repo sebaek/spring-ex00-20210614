@@ -21,6 +21,13 @@ public class Ex06Controller {
 		
 		// /WEB-INF/views/ex06/sub01.jsp
 	}
+	
+	
+	@RequestMapping("/sub02")
+	public void method02() {
+		
+		log.info("ex06, sub02 method");
+	}
 }
 
 
