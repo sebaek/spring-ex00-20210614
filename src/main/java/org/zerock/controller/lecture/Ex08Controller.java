@@ -30,6 +30,21 @@ public class Ex08Controller {
 		
 		model.addAttribute("user", user);
 	}
+	
+	
+	@RequestMapping("/sub03")
+	public String method03(Model model) {
+		log.info("ex08, sub03 method");
+		
+		User user = new User();
+		user.setId("korea");
+		user.setAge(5000);
+		
+//		model.addAttribute("user", user);
+		model.addAttribute(user);
+		
+		return "ex08/sub02";
+	}
 }
 
 
