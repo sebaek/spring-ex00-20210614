@@ -28,7 +28,20 @@ public class Ex06Controller {
 		
 		log.info("ex06, sub02 method");
 	}
+	
+	
+
+	@RequestMapping("/sub03")
+	public String method03() {
+		log.info("ex06, sub03 method");
+		
+		return "forward:/ex06/sub02";
+	}
 }
+
+
+
+
 
 
 
