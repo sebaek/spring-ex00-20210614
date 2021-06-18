@@ -71,8 +71,28 @@ public class Ex08Controller {
 
 		return "ex08/sub02";
 	}
+	
+	// http://localhost:8080/controller/ex08/sub07?id=usa&age=3000
+	@RequestMapping("/sub07")
+	public String method07(User user, Model model) {
+		log.info("ex08, sub07 method");
+
+		return "ex08/sub02";
+	}
 
 }
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
