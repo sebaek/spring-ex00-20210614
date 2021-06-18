@@ -12,7 +12,7 @@
 </head>
 <body>
 <div class="container">
-	<h1>ex06 sub02 view</h1>
+	<h1>ex06 sub02 view <i class="fas fa-thumbs-up"></i></h1>
 </div>
 </body>
 </html>
