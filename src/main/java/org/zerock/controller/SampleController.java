@@ -1,15 +1,19 @@
 package org.zerock.controller;
 
-import java.util.Date;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Date;
 
 import org.springframework.beans.propertyeditors.CustomDateEditor;
+import org.springframework.http.HttpHeaders;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.WebDataBinder;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.InitBinder;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -117,7 +121,28 @@ public class SampleController {
 	}
 	
 	// 148쪽
+	@GetMapping("/ex07")
+	public ResponseEntity<String> ex07() {
+		log.info("/ex07....");
+		
+		String msg = "{\"name\": \"홍길동\"}";
+		
+		HttpHeaders header = new HttpHeaders();
+		header.add("Content-Type", "application/json; charset=UTF-8");
+		
+		return new ResponseEntity<String>(msg, header, HttpStatus.OK);
+	}
 	
+	
+	// 140쪽
+	@GetMapping("/ex04")
+	public String ex04(SampleDTO dto, @ModelAttribute("page") int page) {
+		
+		log.info("dto:" + dto);
+		log.info("page:" + page);
+		
+		return "/sample/ex04";
+	}
 
 }
 
