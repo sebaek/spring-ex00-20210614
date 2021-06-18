@@ -11,4 +11,4 @@
 <link href="${pageContext.request.contextPath }/res/css/all.css" rel="stylesheet">
  -->
 
-<script defer src="${pageContext.request.contextPath }/res/js/all.js"></script>
+<script defer src="${pageContext.request.contextPath }/resources/js/all.js"></script>
