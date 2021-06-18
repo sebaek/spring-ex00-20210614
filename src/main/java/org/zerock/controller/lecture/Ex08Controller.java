@@ -77,6 +77,7 @@ public class Ex08Controller {
 	public String method07(User user, Model model) {
 		log.info("ex08, sub07 method");
 
+		model.addAttribute("hello world");
 		return "ex08/sub02";
 	}
 

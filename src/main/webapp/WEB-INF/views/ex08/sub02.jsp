@@ -15,6 +15,7 @@
 	<h1>ex08, sub02 view</h1>
 	<h3>id : ${user.id }</h3>
 	<h3>age : ${user.age }</h3>
+	<h3>string : ${string }</h3>
 </div>
 </body>
 </html>
