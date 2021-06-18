@@ -1,5 +1,8 @@
 package org.zerock.controller.lecture;
 
+import org.springframework.http.HttpHeaders;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
@@ -52,6 +55,24 @@ public class Ex07Controller {
 		user.setAge(88);
 		
 		return user;
+	}
+	
+	
+	@RequestMapping("/sub05")
+	public ResponseEntity<String> method05() {
+		log.info("ex07, sub05 method");
+		
+		HttpHeaders headers = new HttpHeaders();
+		headers.add("Content-Type", "text/html; charset=utf-8");
+		headers.add("my-header", "my-value");
+		
+		String body = "<h1>Hello Entity</h1>";
+		
+		// 상태 코드,값
+		// 부가정보(header)
+		// 본문(body)
+		
+		return new ResponseEntity<String>(body, headers, HttpStatus.OK);
 	}
 }
 
