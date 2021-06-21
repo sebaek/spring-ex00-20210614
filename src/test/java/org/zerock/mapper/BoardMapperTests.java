@@ -69,6 +69,20 @@ public class BoardMapperTests {
 		assertNotNull(vo);
 		assertEquals(1, vo.getBno());
 		
+		/* insert, 자동 증가 키값 확인 */
+		BoardVO board = new BoardVO();
+		board.setTitle("새로 작성하는 글");
+		board.setContent("새로 작성하는 내용");
+		board.setWriter("newbie");
+
+		int cnt = mapper.insertSelectKey(board);
+		
+		long key = board.getBno();
+		
+		BoardVO newBoard = mapper.read(key);
+		
+		assertNotNull(newBoard);
+		assertEquals(key, newBoard.getBno());
 	}
 }
 
