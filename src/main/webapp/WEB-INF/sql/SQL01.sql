@@ -16,7 +16,12 @@ VALUES ('테스트 제목', '테스트 내용', 'user00');
 
 SELECT * FROM tbl_board;
 
-
+-- 연습
+CREATE TABLE tbl_test1 (
+	id INT PRIMARY KEY AUTO_INCREMENT,
+    name VARCHAR(255) NOT NULL,
+    age INT NOT NULL
+);
 
 
 
