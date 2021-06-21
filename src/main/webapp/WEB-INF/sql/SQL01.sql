@@ -29,7 +29,10 @@ INSERT INTO tbl_test1 (name, age) VALUES ('rm', 11);
 
 SELECT * FROM tbl_test1;
 
-
+-- org.zerock.domain.Test1VO (bean)
+-- org.zerock.mapper.Test1Mapper (interface)
+-- org.zerock.mapper.Test1Mapper.xml (xml)
+-- Test1Tests
 
 
 
