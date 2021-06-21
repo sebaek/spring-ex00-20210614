@@ -107,8 +107,10 @@ public class BoardMapperTests {
 	
 	@Test
 	public void testUpdate() {
+		long bno = 5;
+		
 		BoardVO board = new BoardVO();
-		board.setBno(5);
+		board.setBno(bno);
 		board.setTitle("new title");
 		board.setContent("new content");
 		board.setWriter("user00");
@@ -116,6 +118,11 @@ public class BoardMapperTests {
 		int cnt = mapper.update(board);
 		
 		assertEquals(1, cnt);
+		
+		BoardVO board5 = mapper.read(bno);
+		assertEquals(board.getTitle(), board5.getTitle());
+		assertEquals(board.getContent(), board5.getContent());
+		assertEquals(board.getWriter(), board5.getWriter());
 	}
 }
 
