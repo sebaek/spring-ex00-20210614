@@ -33,8 +33,28 @@ public class BoardMapperTests {
 //		assertEquals(5, list.size());
 		assertTrue(list.size() > 0);
 	}
+	
+	@Test
+	public void testInsert() {
+		BoardVO board = new BoardVO();
+		board.setTitle("새로 작성하는 글");
+		board.setContent("새로 작성하는 내용");
+		board.setWriter("newbie");
+		
+		int cnt = mapper.insert(board);
+		
+		assertEquals(1, cnt);
+	}
 
 }
+
+
+
+
+
+
+
+
 
 
 

@@ -25,7 +25,19 @@
     
   </select>
   
+  <insert id="insert">
+  	INSERT INTO tbl_board (title, content, writer) 
+  	VALUES (#{title}, #{content}, #{writer})
+  </insert>
+  
+  
 </mapper>
+
+
+
+
+
+
 
 
 
