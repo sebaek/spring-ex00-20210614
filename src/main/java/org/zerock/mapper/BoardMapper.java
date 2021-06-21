@@ -22,4 +22,14 @@ public interface BoardMapper {
 		pstmt.executeUpdate();
 
 	 */
+	
+	public int insertSelectKey(BoardVO board);
 }
+
+
+
+
+
+
+
+
