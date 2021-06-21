@@ -61,6 +61,15 @@ public class BoardMapperTests {
 		assertEquals(1, cnt);
 		assertNotEquals(0, board.getBno());
 	}
+	
+	@Test
+	public void testRead() {
+		BoardVO vo = mapper.read(1);
+		
+		assertNotNull(vo);
+		assertEquals(1, vo.getBno());
+		
+	}
 }
 
 

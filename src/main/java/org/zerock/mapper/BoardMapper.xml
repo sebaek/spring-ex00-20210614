@@ -35,6 +35,18 @@
   	VALUES (#{title}, #{content}, #{writer})
   </insert>
   
+  <select id="read" resultType="org.zerock.domain.BoardVO">
+  	SELECT 
+  	 bno bno,
+  	 title title,
+  	 content content,
+  	 writer writer,
+  	 regdate regdate,
+  	 updatedate updateDate
+  	FROM tbl_board
+  	WHERE bno = #{bno}
+  </select>
+  
 </mapper>
 
 
