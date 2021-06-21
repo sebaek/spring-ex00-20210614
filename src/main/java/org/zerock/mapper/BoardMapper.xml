@@ -8,7 +8,7 @@
   <select id="getList" resultType="org.zerock.domain.BoardVO">
     
     SELECT 
-    	bno id,
+    	bno bno,
     	title title,
     	content content,
     	writer writer,
