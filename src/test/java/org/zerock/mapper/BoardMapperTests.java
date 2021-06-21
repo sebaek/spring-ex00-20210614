@@ -56,10 +56,10 @@ public class BoardMapperTests {
 		
 		assertEquals(0, board.getBno());
 		
-		int cnt = mapper.insert(board);
+		int cnt = mapper.insertSelectKey(board);
 		
 		assertEquals(1, cnt);
-//		assertNotEquals(0, board.getBno());
+		assertNotEquals(0, board.getBno());
 	}
 }
 
