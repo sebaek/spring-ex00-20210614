@@ -23,6 +23,13 @@ CREATE TABLE tbl_test1 (
     age INT NOT NULL
 );
 
+INSERT INTO tbl_test1 (name, age) VALUES ('jimin', 22);
+INSERT INTO tbl_test1 (name, age) VALUES ('suga', 33);
+INSERT INTO tbl_test1 (name, age) VALUES ('rm', 11);
+
+SELECT * FROM tbl_test1;
+
+
 
 
 
