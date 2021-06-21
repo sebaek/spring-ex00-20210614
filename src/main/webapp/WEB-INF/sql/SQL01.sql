@@ -14,3 +14,12 @@ CREATE TABLE tbl_board (
 INSERT INTO tbl_board (title, content, writer)
 VALUES ('테스트 제목', '테스트 내용', 'user00');
 
+SELECT * FROM tbl_board;
+
+
+
+
+
+
+
+
