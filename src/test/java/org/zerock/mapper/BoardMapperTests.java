@@ -87,7 +87,7 @@ public class BoardMapperTests {
 	
 	@Test
 	public void testDelete() {
-		int cnt = mapper.delete(0);
+		int cnt = mapper.delete(0); // bno 가 0인 레코드 삭제
 		
 		assertEquals(0, cnt);
 		
@@ -102,6 +102,19 @@ public class BoardMapperTests {
 		mapper.insertSelectKey(board);
 		
 		cnt = mapper.delete(board.getBno());
+		assertEquals(1, cnt);
+	}
+	
+	@Test
+	public void testUpdate() {
+		BoardVO board = new BoardVO();
+		board.setBno(5);
+		board.setTitle("new title");
+		board.setContent("new content");
+		board.setWriter("user00");
+		
+		int cnt = mapper.update(board);
+		
 		assertEquals(1, cnt);
 	}
 }
