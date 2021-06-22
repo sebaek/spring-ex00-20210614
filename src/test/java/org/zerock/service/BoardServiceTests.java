@@ -58,6 +58,24 @@ public class BoardServiceTests {
 		
 		assertEquals(1L, vo.getBno());
 	}
+	
+	
+	@Test
+	public void testModify() {
+		String title = "수정된 제목";
+		String content = "수정된 본문";
+		
+		BoardVO vo = service.get(1L);
+		vo.setTitle(title);
+		vo.setContent(content);
+		
+		service.modify(vo);
+		
+		vo = service.get(1L);
+		
+		assertEquals(title, vo.getTitle());
+		assertEquals(content, vo.getContent());
+	}
 }
 
 

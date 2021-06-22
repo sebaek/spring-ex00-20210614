@@ -32,7 +32,7 @@ public class BoardServiceImpl implements BoardService {
 
 	@Override
 	public boolean modify(BoardVO board) {
-		return false;
+		return mapper.update(board) == 1;
 	}
 
 	@Override
