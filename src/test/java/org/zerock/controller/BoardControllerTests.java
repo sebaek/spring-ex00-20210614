@@ -1,5 +1,6 @@
 package org.zerock.controller;
 
+import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.fail;
 
 import org.junit.Before;
@@ -38,9 +39,14 @@ public class BoardControllerTests {
 
 	@Test
 	public void testList() throws Exception {
-		mockMvc.perform(MockMvcRequestBuilders.get("/board/list"));
+		String viewName = mockMvc.perform(MockMvcRequestBuilders.get("/board/list"))
+				.andReturn()
+				.getModelAndView()
+				.getViewName();
 		
-		fail("fail");
+		assertEquals("board/list", viewName);
+		
+//		fail("fail");
 	}
 
 }
