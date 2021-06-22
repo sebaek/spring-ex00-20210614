@@ -1,5 +1,6 @@
 package org.zerock.service;
 
+import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotEquals;
 import static org.junit.Assert.assertNotNull;
 import static org.junit.Assert.assertTrue;
@@ -49,6 +50,13 @@ public class BoardServiceTests {
 		
 		assertNotNull(list);
 		assertTrue(list.size() > 0);
+	}
+	
+	@Test
+	public void testGet() {
+		BoardVO vo = service.get(1L);
+		
+		assertEquals(1L, vo.getBno());
 	}
 }
 
