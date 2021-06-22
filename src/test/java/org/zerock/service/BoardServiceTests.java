@@ -2,6 +2,9 @@ package org.zerock.service;
 
 import static org.junit.Assert.assertNotEquals;
 import static org.junit.Assert.assertNotNull;
+import static org.junit.Assert.assertTrue;
+
+import java.util.List;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -38,6 +41,14 @@ public class BoardServiceTests {
 		
 		assertNotEquals(0, board.getBno());
 		
+	}
+	
+	@Test
+	public void testGetList() {
+		List<BoardVO> list = service.getList();
+		
+		assertNotNull(list);
+		assertTrue(list.size() > 0);
 	}
 }
 
