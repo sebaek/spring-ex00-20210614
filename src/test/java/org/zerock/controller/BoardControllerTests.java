@@ -18,6 +18,7 @@ import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.test.web.servlet.request.MockMvcRequestBuilders;
 import org.springframework.test.web.servlet.setup.MockMvcBuilders;
 import org.springframework.web.context.WebApplicationContext;
+import org.springframework.web.servlet.FlashMap;
 import org.springframework.web.servlet.ModelAndView;
 
 import lombok.Setter;
@@ -59,8 +60,27 @@ public class BoardControllerTests {
 		
 //		fail("fail");
 	}
-
+	
+	
+	@Test
+	public void testRegiter() throws Exception {
+		FlashMap fm = mockMvc.perform(MockMvcRequestBuilders.post("/board/register")
+					.param("title", "테스트 새글 제목")
+					.param("content", "테스트 새글 내용")
+					.param("writer", "user00"))
+			.andReturn().getFlashMap();
+		
+		assertNotNull(fm.get("result"));
+	}
 }
+
+
+
+
+
+
+
+
 
 
 
