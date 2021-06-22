@@ -22,31 +22,26 @@ public class BoardServiceImpl implements BoardService {
 	
 	@Override
 	public void register(BoardVO board) {
-		// TODO Auto-generated method stub
-		
+		mapper.insertSelectKey(board);
 	}
 
 	@Override
 	public BoardVO get(Long bno) {
-		// TODO Auto-generated method stub
 		return null;
 	}
 
 	@Override
 	public boolean modify(BoardVO board) {
-		// TODO Auto-generated method stub
 		return false;
 	}
 
 	@Override
 	public boolean remove(Long bno) {
-		// TODO Auto-generated method stub
 		return false;
 	}
 
 	@Override
 	public List<BoardVO> getList() {
-		// TODO Auto-generated method stub
 		return null;
 	}
 	
