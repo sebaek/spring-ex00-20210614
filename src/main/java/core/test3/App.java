@@ -11,6 +11,8 @@ public class App {
 		
 		Hero hero = context.getBean("hero", Hero.class);
 		
+//		Hero a = (Hero) context.getBean("hero");
+		
 		System.out.println(hero);
 		System.out.println(hero.getSword());
 		
