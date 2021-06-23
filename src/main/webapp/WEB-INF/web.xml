@@ -26,4 +26,19 @@
     <url-pattern>/</url-pattern>
   </servlet-mapping>
 
+  <filter>
+  	<filter-name>encoding</filter-name>
+  	<filter-class></filter-class>
+  </filter>
 </web-app>
+
+
+
+
+
+
+
+
+
+
+
