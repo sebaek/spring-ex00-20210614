@@ -11,10 +11,10 @@
   <div class="collapse navbar-collapse" id="navbarSupportedContent">
     <ul class="navbar-nav mr-auto">
       <li class="nav-item">
-        <a class="nav-link" href=""><i class="fas fa-list"></i> 목록보기</a>
+        <a class="nav-link" href="${appRoot }/board/list"><i class="fas fa-list"></i> 목록보기</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href=""><i class="fas fa-pen"></i> 글쓰기</a>
+        <a class="nav-link" href="${appRoot }/board/register"><i class="fas fa-pen"></i> 글쓰기</a>
       </li>
     </ul>
   </div>

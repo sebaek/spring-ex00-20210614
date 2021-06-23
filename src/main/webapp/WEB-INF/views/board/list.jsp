@@ -2,6 +2,7 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
+<%@ taglib prefix="bd" tagdir="/WEB-INF/tags/board" %>
 
 <!DOCTYPE html>
 <html>
@@ -12,7 +13,9 @@
 <title>Insert title here</title>
 </head>
 <body>
+	<bd:navbar />
 <div class="container">
+	
 	
 	<h1>글 목록</h1>
 	<table class="table table-striped">
