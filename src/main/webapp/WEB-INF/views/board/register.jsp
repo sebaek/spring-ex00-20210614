@@ -20,7 +20,7 @@
 	
 	<div class="row">
 		<div class="col-12">
-			<form>
+			<form action="${appRoot }/board/register" method="post">
 				<div class="form-group">
 					<label for="input1">제목</label>
 					<input id="input1" class="form-control" name="title">
