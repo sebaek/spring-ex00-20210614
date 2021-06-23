@@ -5,6 +5,7 @@ import static org.junit.Assert.assertNotNull;
 import static org.junit.Assert.assertTrue;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post;
+import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.flash;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.model;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
@@ -96,6 +97,19 @@ public class BoardControllerTests {
 		mockMvc.perform(get("/board/get").param("bno", "1"))
 			.andExpect(status().isOk())
 			.andExpect(model().attributeExists("board"));
+	}
+	
+	
+	@Test
+	public void testModify() throws Exception {
+		mockMvc.perform(post("/board/modify")
+					.param("bno","1")
+					.param("title","수정된 테스트 새글 제목")
+					.param("content","수정된 테스트 새글 내용")
+					.param("writer","user00"))
+			.andExpect(status().is3xxRedirection())
+			.andExpect(flash().attribute("result", "success"));
+		
 	}
 }
 

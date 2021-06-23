@@ -67,6 +67,22 @@ public class BoardController {
 		
 		// forward 
 	}
+
+	@PostMapping("/modify")
+	public String modify(BoardVO board, RedirectAttributes rttr) {
+		// request parameter 수집
+		
+		// service 일 시킴
+		boolean success = service.modify(board);
+		
+		// 결과를 모델(또는 FlashMap)에 넣고
+		if (success) {
+			rttr.addFlashAttribute("result", "success");
+		}
+		
+		// forward or redirect
+		return "redirect:/board/list";
+	}
 }
 
 
