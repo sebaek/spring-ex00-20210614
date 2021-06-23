@@ -5,6 +5,8 @@ import static org.junit.Assert.assertNotNull;
 import static org.junit.Assert.assertTrue;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post;
+import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.model;
+import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
 import java.util.List;
 import java.util.Map;
@@ -87,6 +89,13 @@ public class BoardControllerTests {
 		assertNotNull(vo);
 		assertEquals(1, vo.getBno());
 		
+	}
+	
+	@Test
+	public void testGet2() throws Exception {
+		mockMvc.perform(get("/board/get").param("bno", "1"))
+			.andExpect(status().isOk())
+			.andExpect(model().attributeExists("board"));
 	}
 }
 
