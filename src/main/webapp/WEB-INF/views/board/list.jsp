@@ -52,7 +52,13 @@
 <c:if test="${not empty result }" >
 <script>
 $(document).ready(function() {
-	$("#board-modal1").modal('show');
+	
+	
+	if (history.state == null) {
+		$("#board-modal1").modal('show');
+		history.replaceState({}, null);
+	}
+	
 });
 </script>
 
