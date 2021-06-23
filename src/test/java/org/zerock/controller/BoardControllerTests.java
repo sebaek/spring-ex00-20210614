@@ -111,6 +111,23 @@ public class BoardControllerTests {
 			.andExpect(flash().attribute("result", "success"));
 		
 	}
+	
+	@Test
+	public void testRemove() throws Exception {
+		
+		FlashMap fm = mockMvc.perform(post("/board/register")
+				.param("title", "테스트 새글 제목")
+				.param("content", "테스트 새글 내용")
+				.param("writer", "user00"))
+		.andReturn().getFlashMap();
+	
+//		assertNotNull(fm.get("result"));
+		
+		mockMvc.perform(post("/board/remove").param("bno", fm.get("result").toString()))
+			.andExpect(status().is3xxRedirection())
+			.andExpect(flash().attribute("result", "success"));
+		
+	}
 }
 
 
