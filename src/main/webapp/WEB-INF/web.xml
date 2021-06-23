@@ -25,7 +25,5 @@
     <servlet-name>appServlet</servlet-name>
     <url-pattern>/</url-pattern>
   </servlet-mapping>
-  <listener>
-    <listener-class>org.zerock.listener.BoardListener</listener-class>
-  </listener>
+
 </web-app>
