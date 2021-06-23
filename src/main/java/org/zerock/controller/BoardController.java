@@ -7,6 +7,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 import org.zerock.domain.BoardVO;
 import org.zerock.service.BoardService;
@@ -52,6 +53,19 @@ public class BoardController {
 		
 		// /board/list redirect
 		return "redirect:/board/list";
+	}
+	
+	@GetMapping("/get")
+	public void get(@RequestParam("bno") Long bno, Model model) {
+		log.info("board/get method");
+		
+		// service에게 일 시킴
+		BoardVO vo = service.get(bno);
+		
+		// 결과를 모델에 넣음
+		model.addAttribute("board", vo);
+		
+		// forward 
 	}
 }
 
