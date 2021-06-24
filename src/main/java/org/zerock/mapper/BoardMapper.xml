@@ -39,7 +39,7 @@
     
      FROM tbl_board
      
-     WHERE bno > 0 ORDER BY bno DESC
+     ORDER BY bno DESC
      
      LIMIT #{amount} * (#{pageNum} - 1), #{amount}
      
