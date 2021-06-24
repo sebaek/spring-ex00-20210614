@@ -34,7 +34,7 @@ public class BoardController {
 	*/
 
 	@GetMapping("/list")
-	public void list(Criteria cri, Model model) {
+	public void list(@ModelAttribute("cri") Criteria cri, Model model) {
 		log.info("board/list method.....");
 		int total = 123; // TODO: 나중에 구하는 코드 작성해야 함
 		
@@ -99,7 +99,8 @@ public class BoardController {
 	}
 	
 	@PostMapping("/remove")
-	public String remove(@RequestParam("bno") Long bno, RedirectAttributes rttr) {
+	public String remove(@RequestParam("bno") Long bno,
+			Criteria cri, RedirectAttributes rttr) {
 		// parameter 수집
 		
 		// service 일
@@ -110,6 +111,8 @@ public class BoardController {
 			rttr.addFlashAttribute("messageTitle", "삭제 성공");
 			rttr.addFlashAttribute("messageBody", "삭제 되었습니다.");
 		}
+		rttr.addAttribute("pageNum", cri.getPageNum());
+		rttr.addAttribute("amount", cri.getAmount());
 		
 		// forward or redirect
 		return "redirect:/board/list";
