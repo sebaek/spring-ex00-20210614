@@ -78,7 +78,7 @@ public class BoardController {
 	}
 
 	@PostMapping("/modify")
-	public String modify(BoardVO board, RedirectAttributes rttr) {
+	public String modify(BoardVO board, Criteria cri, RedirectAttributes rttr) {
 		// request parameter 수집
 		
 		// service 일 시킴
@@ -90,6 +90,9 @@ public class BoardController {
 			rttr.addFlashAttribute("messageTitle", "수정 성공");
 			rttr.addFlashAttribute("messageBody", "수정 되었습니다.");
 		}
+		
+		rttr.addAttribute("pageNum", cri.getPageNum());
+		rttr.addAttribute("amount", cri.getAmount());
 		
 		// forward or redirect
 		return "redirect:/board/list";
