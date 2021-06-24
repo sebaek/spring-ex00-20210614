@@ -68,6 +68,9 @@ public class BoardControllerTests {
 		List<BoardVO> list = (List<BoardVO>) o;
 		assertEquals(7, list.size());
 		
+//		Object o2 = map.get("criteria");
+//		assertNotNull(o2);
+		
 //		fail("fail");
 	}
 	
