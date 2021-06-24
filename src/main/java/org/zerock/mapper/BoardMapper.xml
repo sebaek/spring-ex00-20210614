@@ -41,6 +41,8 @@
      
      WHERE bno > 0 ORDER BY bno DESC
      
+     LIMIT #{amount} * (#{pageNum} - 1), #{amount}
+     
     ]]>
     
   </select>
