@@ -36,7 +36,7 @@ public class BoardController {
 	@GetMapping("/list")
 	public void list(@ModelAttribute("cri") Criteria cri, Model model) {
 		log.info("board/list method.....");
-		int total = 123; // TODO: 나중에 구하는 코드 작성해야 함
+		int total = service.getTotal(cri);
 		
 		// service getList() 실행 결과를
 		List<BoardVO> list = service.getList(cri);

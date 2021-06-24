@@ -47,6 +47,10 @@
     
   </select>
   
+  <select id="getTotalCount" resultType="int">
+  SELECT COUNT(*) FROM tbl_board
+  </select>
+  
   <insert id="insert">
   	INSERT INTO tbl_board (title, content, writer) 
   	VALUES (#{title}, #{content}, #{writer})
