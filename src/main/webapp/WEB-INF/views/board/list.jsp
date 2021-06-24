@@ -51,7 +51,14 @@ $(document).ready(function() {
 				<tr>
 					<td>${board.bno }</td>
 					<td>
-					<a href="${appRoot }/board/get?bno=${board.bno}">
+					
+					<c:url value="/board/get" var="getUrl">
+						<c:param name="bno" value="${board.bno }" />
+						<c:param name="pageNum" value="${pageMaker.cri.pageNum }" />
+						<c:param name="amount" value="${pageMaker.cri.amount }" />
+					</c:url>
+					
+					<a href="${getUrl}">
 						${board.title }
 					</a>
 					
