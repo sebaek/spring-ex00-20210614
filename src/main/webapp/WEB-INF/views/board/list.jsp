@@ -76,7 +76,7 @@ $(document).ready(function() {
   
   	<c:if test="${pageMaker.prev }">
 	    <li class="page-item">
-	      <a class="page-link" href="#">Previous</a>
+	      <a class="page-link" href="${pageMaker.startPage - 1 }">Previous</a>
 	    </li>
   	</c:if>
 	
@@ -90,7 +90,7 @@ $(document).ready(function() {
 
 	<c:if test="${pageMaker.next }">
 	    <li class="page-item">
-	      <a class="page-link" href="#">Next</a>
+	      <a class="page-link" href="${pageMaker.endPage + 1 }">Next</a>
 	    </li>
 	</c:if>
   </ul>
