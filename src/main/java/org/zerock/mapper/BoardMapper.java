@@ -9,6 +9,8 @@ public interface BoardMapper {
 //	@Select("SELECT * FROM tbl_board")
 	public List<BoardVO> getList();
 	
+	public List<BoardVO> getListWithPaging(Criteria cri);
+	
 	// INSERT INTO tbl_board (title, content, writer) 
 	// VALUES (#{title}, #{content}, #{writer})
 	public int insert(BoardVO board);
