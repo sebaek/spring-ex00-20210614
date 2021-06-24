@@ -18,6 +18,8 @@ public class PageDTO {
 	private int total; // 총 게시물 수
 	
 	public PageDTO(Criteria cri, int total) {
+		this.cri = cri;
+		
 		int current = cri.getPageNum();
 		int numPerPage = cri.getAmount();
 		
