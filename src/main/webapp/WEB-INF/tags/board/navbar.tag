@@ -13,6 +13,17 @@
 	</c:if>
 </c:url>
 
+<c:url value="/board/register" var="registerUrl">
+	<c:if test="${not empty pageMaker }" >
+		<c:param name="pageNum" value="${pageMaker.cri.pageNum }"></c:param>
+		<c:param name="amount" value="${pageMaker.cri.amount }"></c:param>
+	</c:if>
+	<c:if test="${not empty cri }">
+		<c:param name="pageNum" value="${cri.pageNum }"></c:param>
+		<c:param name="amount" value="${cri.amount }"></c:param>
+	</c:if>
+</c:url>
+
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
   <a class="navbar-brand" href="#">스프링 게시판</a>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -25,7 +36,7 @@
         <a class="nav-link" href="${listUrl }"><i class="fas fa-list"></i> 목록보기</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="${appRoot }/board/register"><i class="fas fa-pen"></i> 글쓰기</a>
+        <a class="nav-link" href="${registerUrl }"><i class="fas fa-pen"></i> 글쓰기</a>
       </li>
     </ul>
   </div>
