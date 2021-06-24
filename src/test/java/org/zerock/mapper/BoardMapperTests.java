@@ -108,7 +108,7 @@ public class BoardMapperTests {
 	
 	@Test
 	public void testUpdate() {
-		long bno = 5;
+		long bno = 1;
 		
 		BoardVO board = new BoardVO();
 		board.setBno(bno);
