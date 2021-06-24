@@ -5,11 +5,13 @@ import java.util.List;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 import org.zerock.domain.BoardVO;
+import org.zerock.domain.Criteria;
 import org.zerock.service.BoardService;
 
 import lombok.AllArgsConstructor;
@@ -31,11 +33,11 @@ public class BoardController {
 	*/
 
 	@GetMapping("/list")
-	public void list(Model model) {
+	public void list(Criteria cri, Model model) {
 		log.info("board/list method.....");
 		
 		// service getList() 실행 결과를
-		List<BoardVO> list = service.getList();
+		List<BoardVO> list = service.getList(cri);
 		// model에 attribute로 넣고
 		model.addAttribute("list", list);
 		
