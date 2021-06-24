@@ -53,22 +53,22 @@
 <div>
 <nav aria-label="Page navigation example">
   <ul class="pagination justify-content-center">
-    <li class="page-item disabled">
-      <a class="page-link" href="#" tabindex="-1" aria-disabled="true">Previous</a>
-    </li>
-    <li class="page-item"><a class="page-link" href="#">11</a></li>
-    <li class="page-item"><a class="page-link" href="#">12</a></li>
-    <li class="page-item"><a class="page-link" href="#">13</a></li>
-    <li class="page-item"><a class="page-link" href="#">14</a></li>
-    <li class="page-item"><a class="page-link" href="#">15</a></li>
-    <li class="page-item"><a class="page-link" href="#">16</a></li>
-    <li class="page-item"><a class="page-link" href="#">17</a></li>
-    <li class="page-item"><a class="page-link" href="#">18</a></li>
-    <li class="page-item"><a class="page-link" href="#">19</a></li>
-    <li class="page-item"><a class="page-link" href="#">20</a></li>
-    <li class="page-item">
-      <a class="page-link" href="#">Next</a>
-    </li>
+  
+  	<c:if test="${pageMaker.prev }">
+	    <li class="page-item">
+	      <a class="page-link" href="#">Previous</a>
+	    </li>
+  	</c:if>
+	
+	<c:forEach begin="${pageMaker.startPage }" end="${pageMaker.endPage }" var="num">
+	    <li class="page-item"><a class="page-link" href="#">${num }</a></li>
+	</c:forEach>
+
+	<c:if test="${pageMaker.next }">
+	    <li class="page-item">
+	      <a class="page-link" href="#">Next</a>
+	    </li>
+	</c:if>
   </ul>
 </nav>
 </div>
