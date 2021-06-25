@@ -5,6 +5,26 @@
   
 <mapper namespace="org.zerock.mapper.BoardMapper">
 
+	<sql id="criteria">
+     <where>
+	     <foreach item="type" separator="OR" collection="typeArr">
+	     	<choose>
+	     		<when test='type == "T"'>
+	     			title LIKE CONCAT('%', #{keyword}, '%')
+	     		</when>
+	     		<when test='type == "W"'>
+	     			writer LIKE CONCAT('%', #{keyword}, '%')
+	     		</when>
+	     		<when test='type == "C"'>
+	     			content LIKE CONCAT('%', #{keyword}, '%')
+	     		</when>
+	     	</choose>
+	     </foreach>
+     </where>	
+	</sql>
+
+
+
   <select id="getList" resultType="org.zerock.domain.BoardVO">
     
     <![CDATA[
@@ -35,21 +55,8 @@
     	regdate regdate,
     	updatedate updateDate
      FROM tbl_board
-     <where>
-	     <foreach item="type" separator="OR" collection="typeArr">
-	     	<choose>
-	     		<when test='type == "T"'>
-	     			title LIKE CONCAT('%', #{keyword}, '%')
-	     		</when>
-	     		<when test='type == "W"'>
-	     			writer LIKE CONCAT('%', #{keyword}, '%')
-	     		</when>
-	     		<when test='type == "C"'>
-	     			content LIKE CONCAT('%', #{keyword}, '%')
-	     		</when>
-	     	</choose>
-	     </foreach>
-     </where>
+
+	<include refid="criteria"></include>
 
      ORDER BY bno DESC
      LIMIT #{from}, #{amount}
@@ -58,6 +65,7 @@
   
   <select id="getTotalCount" resultType="int">
   SELECT COUNT(*) FROM tbl_board
+  <include refid="criteria"></include>
   </select>
   
   <insert id="insert">
