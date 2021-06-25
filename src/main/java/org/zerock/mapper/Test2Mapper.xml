@@ -5,4 +5,7 @@
   
 <mapper namespace="org.zerock.mapper.Test2Mapper">
 
+	<select id="sql1" resultType="int">
+		SELECT 1
+	</select>
 </mapper>
