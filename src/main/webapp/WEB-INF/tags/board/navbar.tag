@@ -28,4 +28,24 @@
       </li>
     </ul>
   </div>
+  
+  <form class="form-inline">
+  	<select name="type" class="form-control mr-sm-2">
+  		<option value="">--</option>
+  		<option value="T">제목</option>
+  		<option value="C">내용</option>
+  		<option value="W">작성자</option>
+  		<option value="TC">제목 or 내용</option>
+  		<option value="TW">제목 or 작성자</option>
+  		<option value="TWC">제목 or 내용 or 작성자</option>
+  	</select>
+  
+    <input name="keyword" class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+    <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+  </form>
 </nav>
+
+
+
+
+
