@@ -5,15 +5,19 @@
 <c:url value="/board/list" var="listUrl">
 		<c:param name="pageNum" value="${cri.pageNum }"></c:param>
 		<c:param name="amount" value="${cri.amount }"></c:param>
+		<c:param name="keyword" value="${cri.keyword }"></c:param>
+		<c:param name="type" value="${cri.type }"></c:param>
 </c:url>
 
 <c:url value="/board/register" var="registerUrl">
 		<c:param name="pageNum" value="${cri.pageNum }"></c:param>
 		<c:param name="amount" value="${cri.amount }"></c:param>
+		<c:param name="keyword" value="${cri.keyword }"></c:param>
+		<c:param name="type" value="${cri.type }"></c:param>
 </c:url>
 
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
-  <a class="navbar-brand" href="#">스프링 게시판</a>
+  <a class="navbar-brand" href="${appRoot }/board/list">스프링 게시판</a>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
