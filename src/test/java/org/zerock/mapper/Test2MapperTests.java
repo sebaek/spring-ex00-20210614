@@ -39,6 +39,11 @@ public class Test2MapperTests {
 		assertEquals(2, mapper.sql2("b"));
 		
 	}
+	
+	@Test
+	public void test3() {
+		mapper.sql3("b");
+	}
 
 }
 

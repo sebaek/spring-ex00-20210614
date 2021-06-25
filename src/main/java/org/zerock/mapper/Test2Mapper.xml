@@ -19,8 +19,32 @@
 		</if>
 	
 	</select>
-	
+
+	<select id="sql3" resultType="int">
+		SELECT count(*) FROM tbl_board
+		WHERE
+		
+		<if test='type == "a"'>
+			writer = 'user00'
+		</if>
+
+		<if test='type == "b"'>
+			content = 'javajava'
+		</if>		
+		
+	</select>	
 </mapper>
+
+
+
+
+
+
+
+
+
+
+
 
 
 
