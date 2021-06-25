@@ -56,6 +56,8 @@ $(document).ready(function() {
 						<c:param name="bno" value="${board.bno }" />
 						<c:param name="pageNum" value="${pageMaker.cri.pageNum }" />
 						<c:param name="amount" value="${pageMaker.cri.amount }" />
+						<c:param name="type" value="${pageMaker.cri.type }"	/>
+						<c:param name="keyword" value="${pageMaker.cri.keyword }" />
 					</c:url>
 					
 					<a href="${getUrl}">
