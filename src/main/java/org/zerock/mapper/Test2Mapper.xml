@@ -33,6 +33,20 @@
 		</if>		
 		
 	</select>	
+	
+	<select id="sql4" resultType="int">
+		SELECT count(*) FROM tbl_board
+		<where>
+			<if test='type == "a"'>
+				writer = 'user00'
+			</if>
+	
+			<if test='type == "b"'>
+				content = 'javajava'
+			</if>		
+		</where>		
+		
+	</select>	
 </mapper>
 
 

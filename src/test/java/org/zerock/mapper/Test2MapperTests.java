@@ -42,7 +42,12 @@ public class Test2MapperTests {
 	
 	@Test
 	public void test3() {
-		mapper.sql3("b");
+		mapper.sql3("a");
+	}
+	
+	@Test
+	public void test4() {
+		mapper.sql4("c");
 	}
 
 }
