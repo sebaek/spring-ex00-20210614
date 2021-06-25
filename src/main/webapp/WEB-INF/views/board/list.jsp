@@ -103,10 +103,13 @@ $(document).ready(function() {
   </ul>
 </nav>
 
+<%-- 페이지 링크용 form --%>
 <div style="display: none;">
 	<form id="actionForm" action="${appRoot }/board/list" method="get">
-		<input name="pageNum" value="${pageMaker.cri.pageNum }" />
-		<input name="amount" value="${pageMaker.cri.amount }" />
+		<input name="pageNum" value="${cri.pageNum }" />
+		<input name="amount" value="${cri.amount }" />
+		<input name="type" value="${cri.type }" />
+		<input name="keyword" value="${cri.keyword }" />
 	</form>
 </div>
 
