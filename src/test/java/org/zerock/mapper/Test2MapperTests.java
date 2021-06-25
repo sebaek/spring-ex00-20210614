@@ -49,6 +49,11 @@ public class Test2MapperTests {
 	public void test4() {
 		mapper.sql4("c");
 	}
+	
+	@Test
+	public void test5() {
+		mapper.sql5("c");
+	}
 
 }
 

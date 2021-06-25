@@ -47,6 +47,24 @@
 		</where>		
 		
 	</select>	
+	
+	<select id="sql5" resultType="int">
+		SELECT count(*) FROM tbl_board
+		<where>
+			<choose>
+				<when test='type == "a"'>
+					writer = 'user00'
+				</when>
+				<when test='type == "b"'>
+					content = 'javajava'
+				</when>	
+				<otherwise>
+					title = 'abcdef'
+				</otherwise>	
+			</choose>
+		</where>		
+		
+	</select>	
 </mapper>
 
 
