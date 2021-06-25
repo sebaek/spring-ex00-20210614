@@ -65,6 +65,23 @@
 		</where>		
 		
 	</select>	
+	
+	<select id="sql6" resultType="int">
+	
+	SELECT COUNT(*) FROM tbl_board
+	
+	WHERE writer IN (
+	
+		<trim suffixOverrides=",">
+			<foreach item="wr" collection="list">
+				#{wr} ,
+			</foreach>
+		</trim>
+	
+	);
+	
+	</select>
+	
 </mapper>
 
 

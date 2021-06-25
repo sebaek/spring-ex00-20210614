@@ -1,6 +1,10 @@
 package org.zerock.mapper;
 
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertNotNull;
+
+import java.util.ArrayList;
+import java.util.List;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -53,6 +57,17 @@ public class Test2MapperTests {
 	@Test
 	public void test5() {
 		mapper.sql5("c");
+	}
+	
+	@Test
+	public void test6() {
+		
+		List<String> list = new ArrayList<>();
+		list.add("java");
+		list.add("user00");
+		list.add("user01");
+		
+		mapper.sql6(list);
 	}
 
 }
