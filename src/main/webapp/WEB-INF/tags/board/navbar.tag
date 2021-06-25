@@ -32,17 +32,17 @@
   <form action="${listUrl }" method="get" class="form-inline">
   	<select name="type" class="form-control mr-sm-2">
   		<option value="">--</option>
-  		<option value="T">제목</option>
-  		<option value="C">내용</option>
-  		<option value="W">작성자</option>
-  		<option value="TC">제목 or 내용</option>
-  		<option value="TW">제목 or 작성자</option>
-  		<option value="TWC">제목 or 내용 or 작성자</option>
+  		<option value="T" ${cri.type == "T" ? 'selected' : '' }>제목</option>
+  		<option value="C" ${cri.type == "C" ? 'selected' : '' }>내용</option>
+  		<option value="W" ${cri.type == "W" ? 'selected' : '' }>작성자</option>
+  		<option value="TC" ${cri.type == "TC" ? 'selected' : '' }>제목 or 내용</option>
+  		<option value="TW" ${cri.type == "TW" ? 'selected' : '' }>제목 or 작성자</option>
+  		<option value="TWC" ${cri.type == "TWC" ? 'selected' : '' }>제목 or 내용 or 작성자</option>
   	</select>
   
-    <input name="keyword" class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+    <input name="keyword" value="${cri.keyword }" class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
     
-    <input type="hidden" name="pageNum" value="${cri.pageNum }">
+    <input type="hidden" name="pageNum" value="1">
     <input type="hidden" name="amount" value="${cri.amount }">
     <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
   </form>
