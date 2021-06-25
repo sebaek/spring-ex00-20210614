@@ -41,7 +41,7 @@
 	     		<when test='type == "T"'>
 	     			title LIKE CONCAT('%', #{keyword}, '%')
 	     		</when>
-	     		<when test='type == "W'>
+	     		<when test='type == "W"'>
 	     			writer LIKE CONCAT('%', #{keyword}, '%')
 	     		</when>
 	     		<when test='type == "C"'>

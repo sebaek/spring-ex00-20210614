@@ -70,6 +70,16 @@ public class Test2MapperTests {
 		mapper.sql6(list);
 	}
 
+	@Test
+	public void test7() {
+		
+		List<String> list = new ArrayList<>();
+		list.add("java");
+		list.add("user00");
+		list.add("user01");
+		
+		mapper.sql7(list);
+	}
 }
 
 

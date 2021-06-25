@@ -25,6 +25,16 @@ OR writer LIKE '%자바%'
 ORDER BY bno DESC
 LIMIT 0, 10;
 
+-- CONCAT 함수
+SELECT CONCAT('a', 'b');
+SELECT CONCAT('a', 'java', 'b');
+SELECT 'a' + 'java';
+SELECT 'a' || 'java'; -- oracle
+
+
+
+
+
 
 
 

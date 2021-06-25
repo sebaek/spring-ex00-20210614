@@ -82,6 +82,19 @@
 	
 	</select>
 	
+	<select id="sql7" resultType="int">
+		SELECT COUNT(*) FROM tbl_board
+		WHERE
+		
+		writer IN (
+		
+		<foreach item="item" separator="," collection="list">
+			#{item}
+		</foreach>
+		
+		)
+	
+	</select>
 </mapper>
 
 

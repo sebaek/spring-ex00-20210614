@@ -17,6 +17,8 @@ public interface Test2Mapper {
 	public int sql5(@Param("type") String t);
 	
 	public int sql6(@Param("list") List<String> types);
+	
+	public int sql7(@Param("list") List<String> types);
 }
 
 
