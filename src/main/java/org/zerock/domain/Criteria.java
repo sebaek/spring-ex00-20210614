@@ -12,6 +12,9 @@ public class Criteria {
 	private int pageNum;
 	private int amount;
 	
+	private String type;
+	private String keyword;
+	
 	public Criteria() {
 		this(1, 10);
 	}
@@ -23,6 +26,10 @@ public class Criteria {
 	
 	public int getFrom() {
 		return amount * (pageNum - 1);
+	}
+	
+	public String[] getTypeArr() {
+//		type.split("");
 	}
 	
 }

@@ -29,7 +29,7 @@
     </ul>
   </div>
   
-  <form class="form-inline">
+  <form action="${listUrl }" method="get" class="form-inline">
   	<select name="type" class="form-control mr-sm-2">
   		<option value="">--</option>
   		<option value="T">제목</option>
@@ -41,6 +41,9 @@
   	</select>
   
     <input name="keyword" class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+    
+    <input type="hidden" name="pageNum" value="${cri.pageNum }">
+    <input type="hidden" name="amount" value="${cri.amount }">
     <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
   </form>
 </nav>
