@@ -91,7 +91,7 @@ $(document).ready(function() {
 	<%-- href value
 	href="${appRoot }/board/list?pageNum=${pageMaker.cri.pageNum}&amount=${pageMaker.cri.amount}"
 	 --%>
-	    <li class="page-item"><a class="page-link" 
+	    <li class="page-item ${num == cri.pageNum ? 'active' : '' }"><a class="page-link" 
 	    href="${num }">${num }</a></li>
 	</c:forEach>
 
