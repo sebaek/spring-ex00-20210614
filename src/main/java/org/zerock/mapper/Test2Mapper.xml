@@ -6,6 +6,24 @@
 <mapper namespace="org.zerock.mapper.Test2Mapper">
 
 	<select id="sql1" resultType="int">
-		SELECT 1
+		SELECT count(*) FROM tbl_board WHERE writer = #{t}
 	</select>
+	
+	<select id="sql2" resultType="int" >
+		
+		<if test='type == "a"'>
+			SELECT 1
+		</if>
+		<if test='type == "b"'>
+			SELECT 2
+		</if>
+	
+	</select>
+	
 </mapper>
+
+
+
+
+
+

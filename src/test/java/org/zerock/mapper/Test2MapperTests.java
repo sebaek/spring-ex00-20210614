@@ -26,5 +26,30 @@ public class Test2MapperTests {
 	public void test() {
 		assertNotNull(mapper);
 	}
+	
+	@Test
+	public void test1() {
+//		assertEquals(1, mapper.sql1("aa"));
+		mapper.sql1("aa");
+	}
+	
+	@Test
+	public void test2() {
+		assertEquals(1, mapper.sql2("a"));
+		assertEquals(2, mapper.sql2("b"));
+		
+	}
 
 }
+
+
+
+
+
+
+
+
+
+
+
+
