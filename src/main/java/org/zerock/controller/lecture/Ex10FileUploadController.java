@@ -7,6 +7,9 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.multipart.MultipartFile;
 
 import lombok.extern.log4j.Log4j;
+import software.amazon.awssdk.auth.credentials.AwsBasicCredentials;
+import software.amazon.awssdk.auth.credentials.DefaultCredentialsProvider;
+import software.amazon.awssdk.auth.credentials.ProfileCredentialsProvider;
 import software.amazon.awssdk.core.sync.RequestBody;
 import software.amazon.awssdk.regions.Region;
 import software.amazon.awssdk.services.s3.S3Client;
@@ -23,11 +26,14 @@ import software.amazon.awssdk.services.s3.model.PutObjectRequest;
 public class Ex10FileUploadController {
 	
 	private static String bucketName = "choongang-test-bucket1";
+	private static String profileName = "team";
 //	private static String key = "AKIA2LIVX7OAQWFLOPCM";
 	private static S3Client s3;
 	
 	static {
-		s3 = S3Client.builder().region(Region.AP_NORTHEAST_2).build();
+		s3 = S3Client.builder()
+				.credentialsProvider(ProfileCredentialsProvider.create(profileName))
+				.build();
 	}
 	
 	
@@ -52,12 +58,12 @@ public class Ex10FileUploadController {
 			s3.putObject(objectRequest, RequestBody.fromInputStream(file.getInputStream(), file.getSize()));
 			
 			// delete
-			DeleteObjectRequest deleteObjectRequest = DeleteObjectRequest.builder()
-			        .bucket(bucketName)
-			        .key("test/" + file.getOriginalFilename())
-			        .build();
-
-			s3.deleteObject(deleteObjectRequest);
+//			DeleteObjectRequest deleteObjectRequest = DeleteObjectRequest.builder()
+//			        .bucket(bucketName)
+//			        .key("test/" + file.getOriginalFilename())
+//			        .build();
+//
+//			s3.deleteObject(deleteObjectRequest);
 		}
 		
 		
