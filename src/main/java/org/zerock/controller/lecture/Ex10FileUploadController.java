@@ -1,7 +1,5 @@
 package org.zerock.controller.lecture;
 
-import java.io.File;
-
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -12,8 +10,12 @@ import lombok.extern.log4j.Log4j;
 import software.amazon.awssdk.core.sync.RequestBody;
 import software.amazon.awssdk.regions.Region;
 import software.amazon.awssdk.services.s3.S3Client;
+import software.amazon.awssdk.services.s3.model.DeleteObjectRequest;
 import software.amazon.awssdk.services.s3.model.ObjectCannedACL;
 import software.amazon.awssdk.services.s3.model.PutObjectRequest;
+
+
+// https://docs.aws.amazon.com/sdk-for-java/latest/developer-guide/home.html
 
 @Controller
 @RequestMapping("/ex1")
@@ -37,15 +39,25 @@ public class Ex10FileUploadController {
 //			File des = new File(file.getOriginalFilename());
 //			file.transferTo(des);
 			
+			
+			// upload
 			PutObjectRequest objectRequest = PutObjectRequest.builder()
 					.bucket(bucketName)
-					.key(file.getOriginalFilename())
+					.key("test/" + file.getOriginalFilename())
 					.contentType(file.getContentType())
 					.acl(ObjectCannedACL.PUBLIC_READ)
 					.build();
 			
 //			s3.putObject(objectRequest, RequestBody.fromFile(des));
 			s3.putObject(objectRequest, RequestBody.fromInputStream(file.getInputStream(), file.getSize()));
+			
+			// delete
+			DeleteObjectRequest deleteObjectRequest = DeleteObjectRequest.builder()
+			        .bucket(bucketName)
+			        .key("test/" + file.getOriginalFilename())
+			        .build();
+
+			s3.deleteObject(deleteObjectRequest);
 		}
 		
 		
