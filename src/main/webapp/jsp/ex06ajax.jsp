@@ -57,9 +57,20 @@
 				console.log(res);
 			});
 		});
+		$("#btn31").click(function() {
+			$.ajax({
+				url : "${appRoot}/rest06/sub02",
+				success : function (res) {
+					console.log("btn3-1 success function");
+					console.log(res);
+				}
+			})
+		})
+		
 	});
 	</script>
 	<button id="btn3">BTN3</button>
+	<button id="btn31">BTN3-1</button>
 	
 	<script>
 	$(function() {
