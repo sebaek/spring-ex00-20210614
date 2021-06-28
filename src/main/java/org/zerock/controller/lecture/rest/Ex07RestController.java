@@ -41,6 +41,15 @@ public class Ex07RestController {
 		
 		return "rest07 sub03";
 	}
+	
+	@RequestMapping("/sub04")
+	public User method04() {
+		User user = new User();
+		user.setId("서울");
+		user.setAge(88);
+		
+		return user;
+	}
 }
 
 
