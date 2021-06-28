@@ -1,4 +1,4 @@
-package org.zerock.controller.lecture;
+package org.zerock.controller.lecture.normal;
 
 import java.text.SimpleDateFormat;
 import java.util.Date;
