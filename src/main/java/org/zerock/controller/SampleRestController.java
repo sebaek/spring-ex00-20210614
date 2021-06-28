@@ -1,5 +1,10 @@
 package org.zerock.controller;
 
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+
 import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -29,7 +34,38 @@ public class SampleRestController {
 		
 		return new SampleVO(11, "스타", "로드");
 	}
+	
+	// 책 363
+	@GetMapping("/getList")
+	public List<SampleVO> getList() {
+		
+		List<SampleVO> list = new ArrayList<>();
+		
+		for (int i = 1; i < 10; i++) {
+			list.add(new SampleVO(i, i + "First", i + "Last"));
+		}
+		
+		return list;
+	}
+	
+	// 책 364
+	@GetMapping("/getMap")
+	public Map<String, SampleVO> getMap() {
+		
+		Map<String, SampleVO> map = new HashMap<>();
+		map.put("First", new SampleVO(111, "그루트", "주니어"));
+		
+		return map;
+	}
 }
+
+
+
+
+
+
+
+
 
 
 
