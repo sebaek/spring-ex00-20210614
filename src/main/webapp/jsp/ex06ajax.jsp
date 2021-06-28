@@ -23,9 +23,16 @@
 			console.log("click btn1");
 			$.ajax("${appRoot}/rest06/sub01");
 		});
+		
+		$("#btn11").click(function() {
+			$.ajax({
+				url: "${appRoot}/rest06/sub01"
+			});
+		});
 	});
 	</script>
 	<button id="btn1">버튼1</button>
+	<button id="btn11">버튼1-1</button>
 	
 	
 	<script>
@@ -68,6 +75,18 @@
 	})
 	</script>
 	<button id="btn4">BTN4</button>
+	
+	<script>
+	$(function() {
+		$("#btn5").click(function() {
+			$.ajax({
+				url: "${appRoot}/rest06/sub05",
+				type: "put" // method로 교체가능
+			});
+		});
+	})
+	</script>
+	<button id="btn5">BTN5</button>
 </div>
 </body>
 </html>
