@@ -80,12 +80,21 @@
 				console.log("성공!!!");
 			})
 			.fail(function() {
-				console.log("실패!!!!");
+				console.log("실패!!!! from btn4 fail");
 			});
 		})
+		$("#btn41").click(function() {
+			$.ajax({
+				url: "${appRoot}/rest06/sub04",
+				error: function() {
+					console.log("실패!!!! from btn4-1 error option")
+				}
+			});
+		});
 	})
 	</script>
 	<button id="btn4">BTN4</button>
+	<button id="btn41">BTN4-1</button>
 	
 	<script>
 	$(function() {
