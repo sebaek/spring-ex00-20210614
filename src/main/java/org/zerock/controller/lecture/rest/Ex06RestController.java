@@ -1,5 +1,7 @@
 package org.zerock.controller.lecture.rest;
 
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -20,7 +22,24 @@ public class Ex06RestController {
 	public String method02() {
 		return "method02 response";
 	}
+	
+	
+	@RequestMapping("/sub04")
+	public ResponseEntity<String> method04() {
+		
+		return new ResponseEntity<String>(HttpStatus.BAD_REQUEST);
+	}
+	
 }
+
+
+
+
+
+
+
+
+
 
 
 

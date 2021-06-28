@@ -45,16 +45,29 @@
 	$(function() {
 		$("#btn3").click(function() {
 			$.ajax("${appRoot}/rest06/sub02")
-			.done(function(data) {
+			.done(function(res) {
 				console.log("btn3 done function");
-				console.log(data);
+				console.log(res);
 			});
 		});
 	});
 	</script>
 	<button id="btn3">BTN3</button>
 	
-	
+	<script>
+	$(function() {
+		$("#btn4").click(function() {
+			$.ajax("${appRoot}/rest06/sub04")
+			.done(function() {
+				console.log("성공!!!");
+			})
+			.fail(function() {
+				console.log("실패!!!!");
+			});
+		})
+	})
+	</script>
+	<button id="btn4">BTN4</button>
 </div>
 </body>
 </html>
