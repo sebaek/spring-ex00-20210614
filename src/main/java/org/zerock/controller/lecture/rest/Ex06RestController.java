@@ -15,4 +15,13 @@ public class Ex06RestController {
 		log.info("rest06 sub01 method...");
 		return "hello";
 	}
+	
+	@RequestMapping("/sub02")
+	public String method02() {
+		return "method02 response";
+	}
 }
+
+
+
+
