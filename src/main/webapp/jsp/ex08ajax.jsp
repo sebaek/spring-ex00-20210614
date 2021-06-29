@@ -67,10 +67,16 @@
 				} 
 			});
 		});
+		$("#btn6").click(function() {
+			$.get("${appRoot}/rest08/sub02", function(data) {
+				console.log("btn6", data);
+			}, "json");
+		})
 	})	
 	</script>
 	<button id="btn4">BTN4</button>
 	<button id="btn5">BTN5</button>
+	<button id="btn6">BTN6</button>
 </div>
 </body>
 </html>
