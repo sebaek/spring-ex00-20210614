@@ -6,5 +6,9 @@ public interface ReplyMapper {
 
 	public int insert(ReplyVO vo);
 	
+	public int insertSelectKey(ReplyVO vo);
+	
 	public ReplyVO read(Long rno);
+	
+	public int delete(Long rno);
 }

@@ -25,7 +25,24 @@
 
 
 </select>
+
+<delete id="delete">
+	DELETE FROM tbl_reply WHERE rno = #{rno}
+</delete>
+
+<insert id="insertSelectKey" useGeneratedKeys="true" keyProperty="rno" keyColumn="rno">
+INSERT INTO tbl_reply (bno, reply, replyer)
+VALUES (#{bno}, #{reply}, #{replyer})
+</insert>
+
 </mapper>
+
+
+
+
+
+
+
 
 
 
