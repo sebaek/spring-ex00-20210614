@@ -39,6 +39,13 @@ public class Ex10RestController {
 		
 		return like;
 	}
+	
+	@PostMapping("/dislike")
+	public Integer dislike() {
+		like--;
+		
+		return like;
+	}
 }
 
 

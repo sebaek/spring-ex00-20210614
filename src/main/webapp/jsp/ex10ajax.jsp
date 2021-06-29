@@ -57,11 +57,23 @@ $(function() {
 	}
 	
 	$("#like-button1").click(function() {
+		var operation = $(this).attr("data-operation");
+		
+		var url = "${appRoot}/rest10/" + operation;
+		
 		$.post({
-			url : "${appRoot}/rest10/like",
+			url : url,
 			success : function(data) {
-				$("#like-icon1").removeClass("far").addClass("fas");
+				//$("#like-icon1").toggleClass("far fas");
 				$("#like-cnt1").text(data);
+				
+				if (operation === "like") {
+					$("#like-button1").attr("data-operation", "dislike");
+					$("#like-icon1").attr("data-prefix", "fas");
+				} else {
+					$("#like-button1").attr("data-operation", "like");
+					$("#like-icon1").attr("data-prefix", "far");
+				}
 			}
 		});
 	});
@@ -72,8 +84,8 @@ $(function() {
 <div class="container">
 	<%= Math.random() %>
 	<hr>
-	<button id="like-button1">
-		<i id="like-icon1" class="far fa-thumbs-up"></i>
+	<button id="like-button1" data-operation="like">
+		<i id="like-icon1" class="far fa-heart"></i>
 		<span id="like-cnt1">10</span>
 	</button>
 	
