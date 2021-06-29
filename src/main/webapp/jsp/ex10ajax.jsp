@@ -41,6 +41,15 @@ $(function() {
 			url : "${appRoot}/rest10/list",
 			success : function(list) {
 				console.log(list);
+				var table1body = $("#table1 tbody");
+				table1body.empty();
+				
+				for (var i = 0; i < list.length; i++) {
+					var tr = $("<tr><td>" + list[i].id 
+							+ "</td><td>"
+							+ list[i].age +"</td></tr>");
+					table1body.append(tr);
+				}
 			}
 		});
 	});
@@ -59,14 +68,14 @@ $(function() {
 		
 		<button id="button2">목록보기</button>
 		
-		<table class="table">
+		<table class="table" id="table1">
 			<thead>
 			<tr>
 				<th>ID</th>
 				<th>AGE</th>
 			</tr>
 			</thead>
-			<tbody id="table1-body">
+			<tbody>
 			
 			</tbody>
 		</table>
