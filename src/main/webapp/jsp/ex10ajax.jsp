@@ -45,14 +45,16 @@ $(function() {
 				table1body.empty();
 				
 				for (var i = 0; i < list.length; i++) {
-					var tr = $("<tr><td>" + list[i].id 
-							+ "</td><td>"
-							+ list[i].age +"</td></tr>");
+					var tr = $(generateTableRow(list[i]));
 					table1body.append(tr);
 				}
 			}
 		});
 	});
+	
+	function generateTableRow(data) {
+		return "<tr><td>" + data.id + "</td><td>" + data.age +"</td></tr>"
+	}
 })
 </script>
 </head>
