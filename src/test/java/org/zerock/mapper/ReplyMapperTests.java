@@ -34,11 +34,27 @@ public class ReplyMapperTests {
 		vo.setReplyer("user00");
 		vo.setBno(150L);
 		
+		// Long 
+		// long
+		
 		int cnt = mapper.insert(vo);
 		assertEquals(1, cnt);
 	}
+	
+	
+	@Test
+	public void testRead() {
+		ReplyVO vo = mapper.read(1L);
+		
+		assertEquals("댓글!!!", vo.getReply());
+	}
 
 }
+
+
+
+
+
 
 
 

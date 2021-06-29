@@ -9,4 +9,25 @@
 	INSERT INTO tbl_reply (bno, reply, replyer)
 	VALUES (#{bno}, #{reply}, #{replyer})
 </insert>
+
+<select id="read" resultType="org.zerock.domain.ReplyVO">
+	SELECT 
+		rno rno,
+		bno bno,
+		reply reply,
+		replyer replyer,
+		replyDate replyDate,
+		updateDate updateDate
+	FROM 
+	    tbl_reply
+	WHERE
+		rno = #{rno}		
+
+
+</select>
 </mapper>
+
+
+
+
+
