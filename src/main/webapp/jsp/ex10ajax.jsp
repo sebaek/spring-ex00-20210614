@@ -55,12 +55,29 @@ $(function() {
 	function generateTableRow(data) {
 		return "<tr><td>" + data.id + "</td><td>" + data.age +"</td></tr>"
 	}
+	
+	$("#like-button1").click(function() {
+		$.post({
+			url : "${appRoot}/rest10/like",
+			success : function(data) {
+				$("#like-icon1").removeClass("far").addClass("fas");
+				$("#like-cnt1").text(data);
+			}
+		});
+	});
 })
 </script>
 </head>
 <body>
 <div class="container">
 	<%= Math.random() %>
+	<hr>
+	<button id="like-button1">
+		<i id="like-icon1" class="far fa-thumbs-up"></i>
+		<span id="like-cnt1">10</span>
+	</button>
+	
+	<hr>
 		<input id="input1" name="id" placeholder="id">
 		<input id="input2" name="age" type="number" placeholder="age" >
 		<!-- <input id="submit1" type="submit" value="전송"> -->	
