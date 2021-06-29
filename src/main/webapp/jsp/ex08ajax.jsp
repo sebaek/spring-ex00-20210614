@@ -57,7 +57,7 @@
 					console.log("btn4", data);
 				}
 			});
-		);
+		});
 		$("#btn5").click(function() {
 			$.get({
 				url: "${appRoot}/rest08/sub02",
