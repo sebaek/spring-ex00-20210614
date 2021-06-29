@@ -35,6 +35,14 @@ INSERT INTO tbl_reply (bno, reply, replyer)
 VALUES (#{bno}, #{reply}, #{replyer})
 </insert>
 
+<update id="update">
+UPDATE tbl_reply
+SET reply = #{reply},
+    replyer = #{replyer},
+    updateDate = now()
+WHERE rno = #{rno}
+</update>
+
 </mapper>
 
 

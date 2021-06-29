@@ -62,6 +62,21 @@ public class ReplyMapperTests {
 		
 		assertEquals(1, cnt);
 	}
+	
+	@Test
+	public void testUpdate() {
+		ReplyVO vo = mapper.read(2L);
+		
+		String re = "수정된 댓글";
+		
+		vo.setReply(re);
+		
+		assertEquals(1, mapper.update(vo));
+		
+		vo = mapper.read(2L);
+		assertEquals(re, vo.getReply());
+		
+	}
 
 }
 
