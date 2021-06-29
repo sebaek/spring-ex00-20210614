@@ -28,9 +28,16 @@
 				dataType: "json"
 			});
 		});
+		
+		$("#btn2").click(function() {
+			$.post({
+				
+			});
+		})
 	})
 	</script>
 	<button id="btn1">BTN1</button>
+	<button id="btn2">BTN2</button>
 </div>
 </body>
 </html>
