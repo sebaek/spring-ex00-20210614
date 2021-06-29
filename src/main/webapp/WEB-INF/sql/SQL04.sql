@@ -11,4 +11,17 @@ CREATE TABLE tbl_reply (
     updateDate TIMESTAMP DEFAULT now(),
     FOREIGN KEY (bno) REFERENCES tbl_board(bno)
 );
-    
+
+SELECT * FROM tbl_board
+ORDER BY bno DESC;
+
+SELECT * FROM tbl_reply
+ORDER BY rno DESC;
+
+
+
+
+
+
+
+
