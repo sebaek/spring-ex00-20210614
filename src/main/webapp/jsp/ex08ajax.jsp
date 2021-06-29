@@ -32,10 +32,17 @@
 				}
 			})
 		})
+		
+		$("#btn3").click(function() {
+			$.get("${appRoot}/rest08/sub01", function(data) {
+				console.log("btn3", data);
+			})
+		})
 	})	
 	</script>
 	<button id="btn1">BTN1</button>
 	<button id="btn2">BTN2</button>
+	<button id="btn3">BTN3</button>
 </div>
 </body>
 </html>
