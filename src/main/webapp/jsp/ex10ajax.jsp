@@ -34,6 +34,16 @@ $(function() {
 			}
 		});
 	});
+	
+	// button2
+	$("#button2").click(function() {
+		$.get({
+			url : "${appRoot}/rest10/list",
+			success : function(list) {
+				console.log(list);
+			}
+		});
+	});
 })
 </script>
 </head>
@@ -44,6 +54,22 @@ $(function() {
 		<input id="input2" name="age" type="number" placeholder="age" >
 		<!-- <input id="submit1" type="submit" value="전송"> -->	
 		<button id="submit1">전송</button>
+		
+		<hr>
+		
+		<button id="button2">목록보기</button>
+		
+		<table class="table">
+			<thead>
+			<tr>
+				<th>ID</th>
+				<th>AGE</th>
+			</tr>
+			</thead>
+			<tbody id="table1-body">
+			
+			</tbody>
+		</table>
 </div>
 </body>
 </html>
