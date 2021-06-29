@@ -43,9 +43,47 @@
 	<button id="btn1">BTN1</button>
 	<button id="btn2">BTN2</button>
 	<button id="btn3">BTN3</button>
+	
+	<hr>
+	
+	<script>
+	$(function() {
+		$("#btn4").click(function() {
+			$.ajax({
+				url: "${appRoot}/rest08/sub02",
+				type: "get",
+				dataType: "json",
+				success: function(data) {
+					console.log("btn4", data);
+				}
+			});
+		);
+		$("#btn5").click(function() {
+			$.get({
+				url: "${appRoot}/rest08/sub02",
+				dataType: "json",
+				success: function(data) {
+					console.log("btn5", data);
+				} 
+			});
+		});
+	})	
+	</script>
+	<button id="btn4">BTN4</button>
+	<button id="btn5">BTN5</button>
 </div>
 </body>
 </html>
+
+
+
+
+
+
+
+
+
+
 
 
 
