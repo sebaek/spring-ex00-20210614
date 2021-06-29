@@ -19,13 +19,23 @@
 				url: "${appRoot}/rest08/sub01",
 				type: 'get',
 				success: function (d) {
-					console.log(d);
+					console.log("btn1", d);
 				}
 			});
+		})
+		
+		$("#btn2").click(function() {
+			$.get({
+				url: "${appRoot}/rest08/sub01",
+				success: function (d) {
+					console.log("btn2", d);
+				}
+			})
 		})
 	})	
 	</script>
 	<button id="btn1">BTN1</button>
+	<button id="btn2">BTN2</button>
 </div>
 </body>
 </html>
