@@ -64,15 +64,14 @@ $(function() {
 		$.post({
 			url : url,
 			success : function(data) {
-				//$("#like-icon1").toggleClass("far fas");
 				$("#like-cnt1").text(data);
 				
 				if (operation === "like") {
 					$("#like-button1").attr("data-operation", "dislike");
-					$("#like-icon1").attr("data-prefix", "fas");
+					$("#like-icon1").removeClass("far").addClass("fas");
 				} else {
 					$("#like-button1").attr("data-operation", "like");
-					$("#like-icon1").attr("data-prefix", "far");
+					$("#like-icon1").removeClass("fas").addClass("far");
 				}
 			}
 		});
@@ -84,10 +83,10 @@ $(function() {
 <div class="container">
 	<%= Math.random() %>
 	<hr>
-	<button id="like-button1" data-operation="like">
+	<div id="like-button1" data-operation="like">
 		<i id="like-icon1" class="far fa-heart"></i>
 		<span id="like-cnt1">10</span>
-	</button>
+	</div>
 	
 	<hr>
 		<input id="input1" name="id" placeholder="id">
