@@ -22,8 +22,8 @@
 					id: "korea",
 					age: 55
 				},
-				success: function(data) {
-					console.log("btn1", data);
+				success: function(d) {
+					console.log("btn1", d);
 				},
 				dataType: "json"
 			});
@@ -31,13 +31,30 @@
 		
 		$("#btn2").click(function() {
 			$.post({
-				
+				url: "${appRoot}/rest09/sub01",
+				data: {
+					id: "korea",
+					age: 55
+				},
+				success: function(d) {
+					console.log("btn2", d);
+				},
+				dataType: "json"
 			});
+		})
+		
+		$("#btn3").click(function() {
+			$.post("${appRoot}/rest09/sub01", {id: "korea", age: 55}
+				, function (d) {
+					console.log("btn3", d);
+				}, "json"
+			);
 		})
 	})
 	</script>
 	<button id="btn1">BTN1</button>
 	<button id="btn2">BTN2</button>
+	<button id="btn3">BTN3</button>
 </div>
 </body>
 </html>
