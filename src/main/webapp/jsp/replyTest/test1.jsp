@@ -14,14 +14,16 @@
 <div class="container">
 	<script>
 	$(function() {
+		var data = {
+				bno: 150,
+				reply: "새로운 댓글",
+				replyer: "user00"
+			};
+		
 		$("#btn1").click(function() {
 			$.post({
 				url : "${appRoot}/replies/new",
-				data : {
-					bno: 150,
-					reply: "새로운 댓글",
-					replyer: "user00"
-				},
+				data : JSON.stringify(data),
 				contentType : "application/json",
 				success: function(data) {
 					console.log(data);
