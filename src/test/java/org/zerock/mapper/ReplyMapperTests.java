@@ -77,6 +77,12 @@ public class ReplyMapperTests {
 		assertEquals(re, vo.getReply());
 		
 	}
+	
+	@Test
+	public void testGetList() {
+		
+		
+	}
 
 }
 
