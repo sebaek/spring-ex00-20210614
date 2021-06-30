@@ -55,12 +55,38 @@
 		});
 	})
 	</script>
-
+	<h5>입력 테스트</h5>
 	<button id="btn1">TEST CREATE - success</button>
 	<button id="btn2">TEST CREATE - fail</button>
+	
+	<hr>
+	<script>
+	$(function() {
+		$("#btn3").click(function() {
+			var bno = 150;
+
+			$.get({
+				url: "${appRoot}/replies/pages/" + bno,
+				success : function (data) {
+					console.log(data);
+				}
+			})
+		})
+	})
+	</script>
+	<h5>목록 테스트</h5>
+	<button id="btn3">TEST LIST</button>
 </div>
 </body>
 </html>
+
+
+
+
+
+
+
+
 
 
 
