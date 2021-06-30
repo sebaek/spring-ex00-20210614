@@ -23,47 +23,55 @@ import lombok.extern.log4j.Log4j;
 @Log4j
 @AllArgsConstructor
 public class ReplyController {
-	
+
 	private ReplyService service;
-	
+
 	/*
-	@Autowired
-	public ReplyController(ReplyService service) {
-		this.service = service;
-	}
-	*/
+	 * @Autowired public ReplyController(ReplyService service) { this.service =
+	 * service; }
+	 */
 
 	@PostMapping("/new")
 	public ResponseEntity<String> create(@RequestBody ReplyVO vo) {
-		
+
 		int cnt = service.register(vo);
-		
+
 		if (cnt == 1) {
-			return new ResponseEntity<String> ("success", HttpStatus.OK);
+			return new ResponseEntity<String>("success", HttpStatus.OK);
 		} else {
-			return new ResponseEntity<String> (HttpStatus.INTERNAL_SERVER_ERROR);
+			return new ResponseEntity<String>(HttpStatus.INTERNAL_SERVER_ERROR);
 		}
 	}
-	
+
 	@GetMapping("/pages/{bno}")
 	public List<ReplyVO> getList(@PathVariable("bno") Long bno) {
-		
+
 		return service.getList(bno);
 	}
-	
-	
+
 	@GetMapping("/{rno}")
 	public ReplyVO get(@PathVariable Long rno) {
-		
+
 		return service.get(rno);
 	}
-	
+
 //	@RequestMapping(value = "/{rno}", method = RequestMethod.DELETE)
 	@DeleteMapping("/{rno}")
 	public ResponseEntity<String> remove(@PathVariable Long rno) {
-		
+
 		int cnt = service.remove(rno);
-		
+
+		if (cnt == 1) {
+			return new ResponseEntity<String>("success", HttpStatus.OK);
+		} else {
+			return new ResponseEntity<String>(HttpStatus.INTERNAL_SERVER_ERROR);
+		}
+	}
+
+	@RequestMapping(value = "/{rno}", method = {RequestMethod.PUT, RequestMethod.PATCH})
+	public ResponseEntity<String> modify(@RequestBody ReplyVO vo, @PathVariable Long rno) {
+		int cnt = service.modify(vo);
+
 		if (cnt == 1) {
 			return new ResponseEntity<String>("success", HttpStatus.OK);
 		} else {
@@ -71,12 +79,6 @@ public class ReplyController {
 		}
 	}
 }
-
-
-
-
-
-
 
 
 

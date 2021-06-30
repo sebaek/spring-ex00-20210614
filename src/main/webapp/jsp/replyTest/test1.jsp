@@ -117,6 +117,36 @@
 	</script>
 	<h5>댓글 삭제</h5>
 	<button id="btn5">TEST DELETE</button>
+	
+	<hr>
+	
+	<script>
+	$(function() {
+		$("#btn6").click(function() {
+			var rno = 26;
+			var data = {
+					rno : rno,
+					bno : 150,
+					reply : "수정된 댓글!!",
+					replyer : "user00"
+			};
+			$.ajax({
+				type: "put",
+				url: "${appRoot}/replies/" + rno,
+				data : JSON.stringify(data),
+				contentType : "application/json",
+				success : function () {
+					console.log("success update");
+				},
+				error : function () {
+					console.log("fail update");
+				}
+			})			
+		});
+	}
+	</script>
+	<h5>댓글 수정</h5>
+	<button id="btn6">TEST UPDATE</button>
 </div>
 </body>
 </html>
