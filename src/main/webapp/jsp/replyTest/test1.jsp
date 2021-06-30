@@ -94,6 +94,29 @@
 	</script>
 	<h5>댓글 하나</h5>
 	<button id="btn4">TEST GET</button>
+	
+	<hr>
+	<script>
+	$(function() {
+		$("#btn5").click(function() {
+			var rno = 20;
+			$.ajax({
+				type: "delete",
+				url: "${appRoot}/replies/" + rno,
+				success: function() {
+					console.log("delete success");
+				},
+				error: function() {
+					console.log("delete fail");
+				}
+				
+			});
+		})
+	})
+	
+	</script>
+	<h5>댓글 삭제</h5>
+	<button id="btn5">TEST DELETE</button>
 </div>
 </body>
 </html>
