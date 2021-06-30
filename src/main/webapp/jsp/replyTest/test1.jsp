@@ -22,6 +22,7 @@
 					reply: "새로운 댓글",
 					replyer: "user00"
 				},
+				contentType : "application/json",
 				success: function(data) {
 					console.log(data);
 				},
