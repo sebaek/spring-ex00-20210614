@@ -76,6 +76,24 @@
 	</script>
 	<h5>목록 테스트</h5>
 	<button id="btn3">TEST LIST</button>
+	
+	<hr>
+	<script>
+	$(function() {
+		$("#btn4").click(function() {
+			var rno = 26;
+			
+			$.get({
+				url: "${appRoot}/replies/" + rno,
+				success: function (data) {
+					console.log(data);
+				}
+			});
+		})
+	})
+	</script>
+	<h5>댓글 하나</h5>
+	<button id="btn4">TEST GET</button>
 </div>
 </body>
 </html>

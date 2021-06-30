@@ -48,6 +48,13 @@ public class ReplyController {
 		
 		return service.getList(bno);
 	}
+	
+	
+	@GetMapping("/{rno}")
+	public ReplyVO get(@PathVariable Long rno) {
+		
+		return service.get(rno);
+	}
 }
 
 
