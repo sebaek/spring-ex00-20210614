@@ -143,7 +143,7 @@
 				}
 			})			
 		});
-	}
+	})
 	</script>
 	<h5>댓글 수정</h5>
 	<button id="btn6">TEST UPDATE</button>
