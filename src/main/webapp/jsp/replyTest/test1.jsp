@@ -147,7 +147,80 @@
 	</script>
 	<h5>댓글 수정</h5>
 	<button id="btn6">TEST UPDATE</button>
+	
+	<hr>
+	<script>
+	$(function() {
+		$("#btn7").click(function() {
+			var rno = $("#input1").val();
+			var bno = $("#input2").val();
+			var reply = $("#input3").val();
+			var replyer = $("#input4").val();
+			
+			var data = {
+					rno : rno,
+					bno : bno,
+					reply : reply,
+					replyer : replyer
+					};
+			$.ajax({
+				type: "put",
+				url: "${appRoot}/replies/" + rno,
+				data : JSON.stringify(data),
+				contentType : "application/json",
+				success : function () {
+					console.log("success update");
+				},
+				error : function () {
+					console.log("fail update");
+				}
+			})
+		});
+	})
+	</script>
+	
+	<h5>댓글 수정 form</h5>
+	<input id="input1" name="rno" value="26" readonly> <br>
+	<input id="input2" name="bno" value="150" readonly> <br>
+	<input id="input3" name="reply" placeholder="댓글 입력" > <br>
+	<input id="input4" name="replyer" placeholder="작성자 입력" > <br>
+	
+	<button id="btn7">TEST UPDATE form</button>
+	
+	
 </div>
+
+<br>
+<br>
+<br>
+<br><br>
+<br><br>
+<br><br>
+<br><br>
+<br><br>
+<br><br>
+<br><br>
+<br><br>
+<br><br>
+<br><br>
+<br><br>
+<br><br>
+<br><br>
+<br><br>
+<br><br>
+<br><br>
+<br><br>
+<br><br>
+<br><br>
+<br><br>
+<br><br>
+<br><br>
+<br><br>
+<br><br>
+<br><br>
+<br><br>
+<br><br>
+<br>
 </body>
 </html>
 
