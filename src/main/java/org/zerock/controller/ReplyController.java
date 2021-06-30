@@ -60,7 +60,7 @@ public class ReplyController {
 	
 //	@RequestMapping(value = "/{rno}", method = RequestMethod.DELETE)
 	@DeleteMapping("/{rno}")
-	public ResponseEntity<String> remove(Long rno) {
+	public ResponseEntity<String> remove(@PathVariable Long rno) {
 		
 		int cnt = service.remove(rno);
 		
