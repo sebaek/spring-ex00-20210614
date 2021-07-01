@@ -13,11 +13,30 @@
 
 <script>
 $(function() {
+	function showModifyModal(rno) {
+		$.ajax({
+			type: "get",
+			url: "${appRoot}/replies/" + rno,
+			success: function (reply) {
+				$("#reply-replyer-input2").val(reply.replyer);
+				$("#reply-reply-textarea2").text(reply.reply);
+				$("#reply-modify-modal").modal("show");
+			},
+			error: function () {
+				console.log("댓글 가져오기 실패");
+			}
+		})
+	}
+	
 	function showReplyList(list) {
 		var container = $("#reply-list-container").empty();
 		
 		for (var reply of list) {
-			var newItem = $("<div>");
+			var newItem = $("<div>").attr("id", "reply" + reply.rno)
+									.attr("data-rno", reply.rno);
+			newItem.click(function() {
+				showModifyModal($(this).attr("data-rno"));
+			});
 			newItem.append("<span>" + reply.rno + ",</span>")
 				   .append("<span>" + reply.reply + ",</span>")
 				   .append("<span>" + reply.replyer + ",</span>")
@@ -168,7 +187,36 @@ $(function() {
   </div>
 </div>
 
-
+<%-- 댓글 수정, 삭제 모달 --%>
+<div class="modal fade" id="reply-modify-modal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">댓글 수정/삭제</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <form>
+          <input type="text" value="${board.bno }" readonly hidden id="reply-bno-input2">
+          <div class="form-group">
+            <label for="recipient-name" class="col-form-label">작성자</label>
+            <input type="text" class="form-control" id="reply-replyer-input2">
+          </div>
+          <div class="form-group">
+            <label for="message-text" class="col-form-label">댓글</label>
+            <textarea class="form-control" id="reply-reply-textarea2"></textarea>
+          </div>
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        <button id="reply-modify-btn1" type="button" class="btn btn-primary">댓글 수정</button>
+      </div>
+    </div>
+  </div>
+</div>
 
 </body>
 </html>
