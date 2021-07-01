@@ -27,17 +27,21 @@ $(function() {
 	}
 	
 	/* 댓글 목록 가져오기 */
-	$.ajax({
-		type: "get",
-		url: "${appRoot}/replies/pages/${board.bno}",
-		success: function(list) {
-			console.log(list);
-			showReplyList(list);
-		},
-		error : function() {
-			console.log("댓글 가져오는 중 에러.");
-		}
-	});
+	function getReplyList() {
+		$.ajax({
+			type: "get",
+			url: "${appRoot}/replies/pages/${board.bno}",
+			success: function(list) {
+				console.log(list);
+				showReplyList(list);
+			},
+			error : function() {
+				console.log("댓글 가져오는 중 에러.");
+			}
+		});
+	}
+	// 페이지 로딩 후 댓글 목록 가져오는 함수 실행
+	getReplyList();
 	
 	/* 댓글 입력 버튼 처리 */
 	$("#reply-insert-btn1").click(function() {
@@ -58,6 +62,13 @@ $(function() {
 			contentType: "application/json",
 			success: function() {
 				console.log("입력 성공");
+				// 모달창 닫고
+				$("#reply-insert-modal").modal("hide");
+				// 댓글리스트 가져오고
+				getReplyList();
+				
+				// 안내 메세지 보여주기
+				$("#alert1").text("새 댓글 입력하였습니다.").alert();
 			},
 			error: function() {
 				console.log("입력 실패");
@@ -74,6 +85,10 @@ $(function() {
 <bd:navbar></bd:navbar>
 
 <div class="container">
+
+<div id="alert1" class="alert alert-primary fade" role="alert">
+</div>
+
 	<h1>글 보기</h1>
 	
 	<div class="row">
@@ -152,6 +167,7 @@ $(function() {
     </div>
   </div>
 </div>
+
 
 
 </body>
