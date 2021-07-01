@@ -14,7 +14,7 @@
 <script>
 $(function() {
 	function showReplyList(list) {
-		var container = $("#reply-list-container");
+		var container = $("#reply-list-container").empty();
 		
 		for (var reply of list) {
 			var newItem = $("<div>");
