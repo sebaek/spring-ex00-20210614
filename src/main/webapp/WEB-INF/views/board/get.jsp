@@ -130,6 +130,30 @@ $(function() {
 			}
 		})
 	});
+	
+	/* 삭제 버튼 클릭시 */
+	$("#reply-delete-btn1").click(function () {
+		var check = confirm("삭제 하시겠습니까?");
+		
+		if (check) {
+			var rno = ;
+			$.ajax({
+				type: "",
+				url: ,
+				success: function () {
+					// modal 닫고,
+					
+					// 댓글 리스트 다시 얻어오고,
+					
+					// alert 띄우고
+					
+				},
+				error: function() {
+					console.log("삭제 실패");
+				}
+			})
+		}
+	});
 })
 
 </script>
@@ -250,6 +274,7 @@ $(function() {
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
         <button id="reply-modify-btn1" type="button" class="btn btn-primary">댓글 수정</button>
+        <button id="reply-delete-btn1" type="button" class="btn btn-danger">댓글 삭제</button>
       </div>
     </div>
   </div>
