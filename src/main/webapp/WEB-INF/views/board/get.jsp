@@ -18,6 +18,7 @@ $(function() {
 			type: "get",
 			url: "${appRoot}/replies/" + rno,
 			success: function (reply) {
+				$("#reply-rno-input2").val(reply.rno);
 				$("#reply-replyer-input2").val(reply.replyer);
 				$("#reply-reply-textarea2").text(reply.reply);
 				$("#reply-modify-modal").modal("show");
@@ -93,6 +94,34 @@ $(function() {
 				console.log("입력 실패");
 			}
 		});
+	});
+	
+	/* 수정 submit 버튼 클릭시 */
+	$("#reply-modify-btn1").click(function() {
+		var rno = $("#reply-rno-input2").val();
+		var bno = $("#reply-bno-input2").val();
+		var reply = $("#reply-reply-textarea2").val();
+		var replyer = $("#reply-replyer-input2").val();
+		
+		var data = {
+			rno : rno,
+			bno : bno,
+			reply: reply,
+			replyer: replyer
+		}
+		
+		$.ajax({
+			type: "put",
+			url: "${appRoot}/replies/" + rno,
+			data: JSON.stringify(data),
+			contentType : "application/json",
+			success: function() {
+				console.log("수정 성공");
+			},
+			error: function() {
+				console.log("수정 실패");
+			}
+		})
 	});
 })
 
@@ -199,10 +228,11 @@ $(function() {
       </div>
       <div class="modal-body">
         <form>
+          <input type="text" value="" readonly hidden id="reply-rno-input2" >
           <input type="text" value="${board.bno }" readonly hidden id="reply-bno-input2">
           <div class="form-group">
             <label for="recipient-name" class="col-form-label">작성자</label>
-            <input type="text" class="form-control" id="reply-replyer-input2">
+            <input type="text" class="form-control" id="reply-replyer-input2" readonly>
           </div>
           <div class="form-group">
             <label for="message-text" class="col-form-label">댓글</label>
