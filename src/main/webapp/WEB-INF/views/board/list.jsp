@@ -43,7 +43,9 @@ $(document).ready(function() {
 				<th>제목</th>
 				<th>작성자</th>
 				<th>작성일</th>
+				<%--
 				<th>수정일</th>
+				 --%>
 			</tr>
 		</thead>
 		<tbody>
@@ -62,20 +64,22 @@ $(document).ready(function() {
 					
 					<a href="${getUrl}">
 						${board.title } 
-						<c:if test="${board.replyCnt > 0 }">
-							[${board.replyCnt }]
-						</c:if>
-						
 					</a>
+					<c:if test="${board.replyCnt > 0 }">
+						<i class="far fa-comment-dots"></i> ${board.replyCnt }
+					</c:if>
+						
 					
 					</td>
 					<td>${board.writer }</td>
 					<td>
 						<fmt:formatDate pattern="yyyy-MM-dd" value="${board.regdate }"/>
 					</td>
+					<%--
 					<td>
 						<fmt:formatDate pattern="yyyy-MM-dd" value="${board.updateDate }"/>
 					</td>
+					 --%>
 				</tr>
 			</c:forEach>			
 		</tbody>
