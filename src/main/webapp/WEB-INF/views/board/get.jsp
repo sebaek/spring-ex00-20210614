@@ -13,11 +13,25 @@
 
 <script>
 $(function() {
+	function showReplyList(list) {
+		var container = $("#reply-list-container");
+		
+		for (var reply of list) {
+			var newItem = $("<div>");
+			newItem.append("<span>" + reply.rno + ",</span>")
+				   .append("<span>" + reply.reply + ",</span>")
+				   .append("<span>" + reply.replyer + ",</span>")
+				   .append("<span>" + reply.replyDate + "</span>");
+			container.append(newItem);
+		}
+	}
+	
 	$.ajax({
 		type: "get",
 		url: "${appRoot}/replies/pages/${board.bno}",
 		success: function(list) {
 			console.log(list);
+			showReplyList(list);
 		},
 		error : function() {
 			console.log("댓글 가져오는 중 에러.");
@@ -62,6 +76,16 @@ $(function() {
 				
 				<a class="btn btn-secondary" href="${modifyUrl }">수정/삭제</a>
 			</form>
+		</div>
+	</div>
+</div>
+
+<div class="container">
+	<div class="row">
+		<div class="col-12">
+			<div id="reply-list-container">
+			
+			</div>
 		</div>
 	</div>
 </div>
