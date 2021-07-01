@@ -28,6 +28,7 @@
 						<h5 class="my-4">${reply.replyer}</h5>
 						<p>${reply.reply}</p>
 						<small>${new Date(reply.replyDate).toISOString().split("T")[0]}</small>
+						<hr>
 					</div>
 				</li>`;
 			var replyComponent = $(replyHTML).click(function() {
