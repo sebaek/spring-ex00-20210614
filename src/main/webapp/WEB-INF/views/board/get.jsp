@@ -26,6 +26,7 @@ $(function() {
 		}
 	}
 	
+	/* 댓글 목록 가져오기 */
 	$.ajax({
 		type: "get",
 		url: "${appRoot}/replies/pages/${board.bno}",
@@ -36,6 +37,32 @@ $(function() {
 		error : function() {
 			console.log("댓글 가져오는 중 에러.");
 		}
+	});
+	
+	/* 댓글 입력 버튼 처리 */
+	$("#reply-insert-btn1").click(function() {
+		var bno = $("#reply-bno-input1").val();
+		var replyer = $("#reply-replyer-input1").val();
+		var reply = $("#reply-reply-textarea1").val();
+		
+		var data = {
+			bno: bno,
+			replyer: replyer,
+			reply: reply
+		};
+		
+		$.ajax({
+			type: "post",
+			url: "${appRoot}/replies/new",
+			data: JSON.stringify(data),
+			contentType: "application/json",
+			success: function() {
+				console.log("입력 성공");
+			},
+			error: function() {
+				console.log("입력 실패");
+			}
+		});
 	});
 })
 
