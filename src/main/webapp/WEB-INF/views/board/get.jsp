@@ -117,6 +117,13 @@ $(function() {
 			contentType : "application/json",
 			success: function() {
 				console.log("수정 성공");
+				// 모달창 닫고
+				$("#reply-modify-modal").modal("hide");
+				// 댓글리스트 가져오고
+				getReplyList();
+				
+				// 안내 메세지 보여주기
+				$("#alert1").text("댓글 수정하였습니다.").addClass("show");
 			},
 			error: function() {
 				console.log("수정 실패");
