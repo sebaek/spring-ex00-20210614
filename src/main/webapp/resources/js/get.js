@@ -22,6 +22,22 @@
 		var container = $("#reply-list-container").empty();
 		
 		for (var reply of list) {
+			var replyHTML = `
+				<li class="media" id="reply${reply.rno}" data-rno="${reply.rno}">
+					<div class="media-body">
+						<h5 class="my-4">${reply.replyer}</h5>
+						<p>${reply.reply}</p>
+						<small>${new Date(reply.replyDate).toISOString().split("T")[0]}</small>
+					</div>
+				</li>`;
+			var replyComponent = $(replyHTML).click(function() {
+				showModifyModal($(this).attr("data-rno"));
+			});
+			container.append(replyComponent);
+		}
+		
+		/*
+		for (var reply of list) {
 			var newItem = $("<li>").addClass("media")
 									.attr("id", "reply" + reply.rno)
 									.attr("data-rno", reply.rno);
@@ -38,6 +54,7 @@
 			
 			container.append(newItem);
 		}
+		*/
 	}
 	
 	/* 댓글 목록 가져오기 */
