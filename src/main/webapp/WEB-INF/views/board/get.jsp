@@ -136,17 +136,17 @@ $(function() {
 		var check = confirm("삭제 하시겠습니까?");
 		
 		if (check) {
-			var rno = ;
+			var rno = $("#reply-rno-input2").val();
 			$.ajax({
-				type: "",
-				url: ,
+				type: "delete",
+				url: "${appRoot}/replies/" + rno,
 				success: function () {
 					// modal 닫고,
-					
+					$("#reply-modify-modal").modal("hide");
 					// 댓글 리스트 다시 얻어오고,
-					
+					getReplyList();
 					// alert 띄우고
-					
+					$("#alert1").text("댓글 삭제하였습니다.").addClass("show");
 				},
 				error: function() {
 					console.log("삭제 실패");
