@@ -10,6 +10,24 @@
 <%@ include file="/WEB-INF/subModules/bootstrapHeader.jsp" %>
 
 <title>Insert title here</title>
+
+<script>
+$(function() {
+	$.ajax({
+		type: "get",
+		url: "${appRoot}/replies/pages/${board.bno}",
+		success: function(list) {
+			console.log(list);
+		},
+		error : function() {
+			console.log("댓글 가져오는 중 에러.");
+		}
+	});
+})
+
+</script>
+
+
 </head>
 <body>
 <bd:navbar></bd:navbar>
