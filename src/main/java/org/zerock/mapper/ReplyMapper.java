@@ -17,4 +17,15 @@ public interface ReplyMapper {
 	public int update(ReplyVO vo);
 	
 	public List<ReplyVO> getList(Long bno);
+	
+	public int getCountByBno(Long bno);
 }
+
+
+
+
+
+
+
+
+
