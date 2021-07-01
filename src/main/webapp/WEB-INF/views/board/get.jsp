@@ -14,7 +14,7 @@
 <script>
 $(function() {
 	function showReplyList(list) {
-		var container = $("#reply-list-container");
+		var container = $("#reply-list-container").empty();
 		
 		for (var reply of list) {
 			var newItem = $("<div>");
@@ -68,7 +68,7 @@ $(function() {
 				getReplyList();
 				
 				// 안내 메세지 보여주기
-				$("#alert1").text("새 댓글 입력하였습니다.").alert();
+				$("#alert1").text("새 댓글 입력하였습니다.").addClass("show");
 			},
 			error: function() {
 				console.log("입력 실패");
