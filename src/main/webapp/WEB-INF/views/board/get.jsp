@@ -68,7 +68,8 @@ $(function() {
 				getReplyList();
 				
 				// 안내 메세지 보여주기
-				$("#alert1").text("새 댓글 입력하였습니다.").alert();
+				$("#alert1-message").text("새 댓글 입력하였습니다.")
+				$("#alert1").addClass("show");
 			},
 			error: function() {
 				console.log("입력 실패");
@@ -86,7 +87,11 @@ $(function() {
 
 <div class="container">
 
-<div id="alert1" class="alert alert-primary fade" role="alert">
+<div id="alert1" class="alert alert-primary fade alert-dismissible"  role="alert" data-dismiss="alert">
+<span id="alert1-message"></span>
+<button type="button" class="close" data-dismiss="alert" aria-label="Close">
+    <span aria-hidden="true">&times;</span>
+  </button>
 </div>
 
 	<h1>글 보기</h1>
