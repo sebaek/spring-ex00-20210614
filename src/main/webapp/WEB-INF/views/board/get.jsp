@@ -33,15 +33,20 @@ $(function() {
 		var container = $("#reply-list-container").empty();
 		
 		for (var reply of list) {
-			var newItem = $("<div>").attr("id", "reply" + reply.rno)
+			var newItem = $("<li>").addClass("media")
+									.attr("id", "reply" + reply.rno)
 									.attr("data-rno", reply.rno);
+			var mediaBody = $("<div>").addClass("media-body");
+			newItem.append(mediaBody);
+			
 			newItem.click(function() {
 				showModifyModal($(this).attr("data-rno"));
 			});
-			newItem.append("<span>" + reply.rno + ",</span>")
-				   .append("<span>" + reply.reply + ",</span>")
-				   .append("<span>" + reply.replyer + ",</span>")
-				   .append("<span>" + reply.replyDate + "</span>");
+			mediaBody.append("<h5 class='my-4'>" + reply.replyer + "</h5>")
+				   .append("<p>" + reply.reply + "</p>")
+//				   .append("<small>" + reply.replyDate + "</small>");
+				   .append("<small>" + new Date(reply.replyDate).toISOString().split("T")[0] + "</small>");
+			
 			container.append(newItem);
 		}
 	}
@@ -204,9 +209,11 @@ $(function() {
 <div class="container">
 	<div class="row">
 		<div class="col-12">
-			<div id="reply-list-container">
+			<h3>댓글 </h3>
+			<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#reply-insert-modal">댓글 작성</button>
+			<ul class="list-unstyled" id="reply-list-container">
 			
-			</div>
+			</ul>
 		</div>
 	</div>
 </div>
@@ -215,7 +222,6 @@ $(function() {
 
 
 <%-- 댓글 입력 모달 --%>
-<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#reply-insert-modal">댓글 작성</button>
 
 <div class="modal fade" id="reply-insert-modal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog">
