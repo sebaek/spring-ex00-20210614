@@ -1,7 +1,6 @@
 package org.zerock.mapper;
 
 import static org.junit.Assert.assertNotNull;
-import static org.junit.Assert.fail;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -24,5 +23,26 @@ public class TxTest1MapperTests {
 	public void test() {
 		assertNotNull(mapper);
 	}
+	
+	@Test
+	public void testInsertOk() {
+		mapper.insert("abc");
+	}
+	
+	
+	@Test(expected = Exception.class)
+	public void testInsertFail() {
+		mapper.insert("abcdef");
+	}
 
 }
+
+
+
+
+
+
+
+
+
+
