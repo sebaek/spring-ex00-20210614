@@ -8,3 +8,6 @@ INSERT INTO tbl_tx_test1 (name) VALUES ('abcde'); -- ok
 INSERT INTO tbl_tx_test1 (name) VALUES ('abcdef'); -- fail
 
 SELECT * FROM tbl_tx_test1;
+
+DELETE FROM tbl_tx_test1;
+
