@@ -17,6 +17,14 @@
 		file : <input type="file" name="ufile" accept="image/*" /> <br>
 		<input type="submit">
 	</form>
+	
+	<hr>
+	
+	<form action="${appRoot }/upload/sub02" method="post" enctype="multipart/form-data">
+		name: <input name="name" value="donald"/> <br>
+		file: <input type="file" name="file" accept="image/*" /> <br>
+		<input type="submit">
+	</form>
 </div>
 </body>
 </html>
