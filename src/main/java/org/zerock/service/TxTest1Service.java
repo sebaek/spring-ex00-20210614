@@ -8,12 +8,13 @@ import org.zerock.mapper.TxTest1Mapper;
 import lombok.Setter;
 
 @Service
+@Transactional
 public class TxTest1Service {
 
 	@Setter (onMethod_ = @Autowired)
 	private TxTest1Mapper mapper;
 	
-	@Transactional
+//	@Transactional
 	public void insert(String name) {
 		mapper.insert(name);
 		mapper.insert(name + name);
