@@ -27,7 +27,6 @@ public class Ex02UploadController {
 				.credentialsProvider(ProfileCredentialsProvider.create(profileName))
 				.build();
 		
-		
 		PutObjectRequest objectRequest = PutObjectRequest.builder()
 				.bucket(bucketName)
 				.key(file.getOriginalFilename())
