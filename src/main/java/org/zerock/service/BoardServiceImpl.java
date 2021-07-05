@@ -39,10 +39,10 @@ public class BoardServiceImpl implements BoardService {
 	@Override
 	public void register(BoardVO board, MultipartFile file) {
 		register(board);
-		upload(file);
+		upload(board, file);
 	}
 
-	private void upload(MultipartFile file) {
+	private void upload(BoardVO board, MultipartFile file) {
 
 		try (InputStream is = file.getInputStream()) {
 			String bucketName = "choongang-sebaek1";
@@ -53,7 +53,7 @@ public class BoardServiceImpl implements BoardService {
 			
 			PutObjectRequest objectRequest = PutObjectRequest.builder()
 					.bucket(bucketName)
-					.key(file.getOriginalFilename())
+					.key(board.getBno() + "/" + file.getOriginalFilename())
 					.contentType(file.getContentType())
 					.acl(ObjectCannedACL.PUBLIC_READ)
 					.build();
