@@ -8,7 +8,9 @@ import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.multipart.MultipartFile;
 import org.zerock.domain.BoardVO;
 import org.zerock.domain.Criteria;
+import org.zerock.domain.FileVO;
 import org.zerock.mapper.BoardMapper;
+import org.zerock.mapper.FileMapper;
 import org.zerock.mapper.ReplyMapper;
 
 import lombok.AllArgsConstructor;
@@ -24,6 +26,7 @@ public class BoardServiceImpl implements BoardService {
 
 	private BoardMapper mapper;
 	private ReplyMapper replyMapper;
+	private FileMapper fileMapper;
 	
 //	@Autowired
 //	public BoardServiceImpl(BoardMapper mapper) {
@@ -37,9 +40,18 @@ public class BoardServiceImpl implements BoardService {
 	}
 	
 	@Override
+	@Transactional
 	public void register(BoardVO board, MultipartFile file) {
 		register(board);
-		upload(board, file);
+		
+		if (file != null && file.getSize() > 0) {
+			FileVO vo = new FileVO();
+			vo.setBno(board.getBno());
+			vo.setFileName(file.getOriginalFilename());
+			
+			fileMapper.insert(vo);
+			upload(board, file);
+		}
 	}
 
 	private void upload(BoardVO board, MultipartFile file) {
