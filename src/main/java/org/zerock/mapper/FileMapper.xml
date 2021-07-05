@@ -10,6 +10,11 @@ INSERT INTO tbl_board_file (bno, fileName)
 VALUES (#{bno}, #{fileName})
 </insert>
 
+<delete id="deleteByBno" >
+DELETE FROM tbl_board_file 
+WHERE bno = #{bno}
+</delete>
+
 </mapper>
 
 
