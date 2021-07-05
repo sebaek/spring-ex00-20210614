@@ -49,7 +49,8 @@ public class BoardController {
 	}
 	
 	@PostMapping("/register")
-	public String register(BoardVO board, MultipartFile file, RedirectAttributes rttr) {
+	public String register(BoardVO board, 
+			@RequestParam("file") MultipartFile file, RedirectAttributes rttr) {
 		
 		board.setFileName(file.getOriginalFilename());
 		
