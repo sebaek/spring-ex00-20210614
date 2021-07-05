@@ -82,11 +82,12 @@ public class BoardController {
 	}
 
 	@PostMapping("/modify")
-	public String modify(BoardVO board, Criteria cri, RedirectAttributes rttr) {
+	public String modify(BoardVO board, Criteria cri, 
+			@RequestParam("file") MultipartFile file, RedirectAttributes rttr) {
 		// request parameter 수집
 		
 		// service 일 시킴
-		boolean success = service.modify(board);
+		boolean success = service.modify(board, file);
 		
 		// 결과를 모델(또는 FlashMap)에 넣고
 		if (success) {

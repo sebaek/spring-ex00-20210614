@@ -102,6 +102,27 @@ public class BoardServiceImpl implements BoardService {
 	public boolean modify(BoardVO board) {
 		return mapper.update(board) == 1;
 	}
+	
+	@Override
+	@Transactional
+	public boolean modify(BoardVO board, MultipartFile file) {
+		
+		if (file != null & file.getSize() > 0) {
+			// s3는 삭제 후 재업로드
+			BoardVO oldBoard = mapper.read(board.getBno());
+			removeFile(oldBoard);
+			upload(board, file);
+			
+			// tbl_board_file은 삭제 후 인서트
+			fileMapper.deleteByBno(board.getBno());
+			
+			FileVO vo = new FileVO();
+			vo.setBno(board.getBno());
+			vo.setFileName(file.getOriginalFilename());
+			fileMapper.insert(vo);
+		}
+		return modify(board);
+	}
 
 	@Override
 	@Transactional

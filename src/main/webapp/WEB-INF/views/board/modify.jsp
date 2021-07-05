@@ -32,7 +32,7 @@ $(document).ready(function() {
 	
 	<div class="row">
 		<div class="col-12">
-			<form id="modify-form1" action="${appRoot }/board/modify" method="post">
+			<form id="modify-form1" action="${appRoot }/board/modify" method="post" enctype="multipart/form-data">
 				<input hidden name="bno" value="${board.bno }" />
 				<div class="form-group">
 					<label for="input1">제목</label>
@@ -43,6 +43,19 @@ $(document).ready(function() {
 					<textarea id="textarea1" class="form-control" 
 					name="content"><c:out value="${board.content }" /></textarea>
 				</div>
+				
+				<c:if test="${not empty board.fileName }">
+					<div>
+						<img class="img-fluid" 
+						src="${imgRoot}${board.bno }/${board.fileName}">
+					</div>
+				</c:if>
+				
+				<div class="form-group">
+					<label for="input3">파일</label>
+					<input id="input3" class="form-control" type="file" name="file" accept="image/*">
+				</div>
+				
 				<div class="form-group">
 					<label for="input2">작성자</label>
 					<input readonly="readonly" value="${board.writer }" id="input2" class="form-control" name="writer">
