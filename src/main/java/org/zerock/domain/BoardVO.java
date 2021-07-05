@@ -2,6 +2,8 @@ package org.zerock.domain;
 
 import java.util.Date;
 
+import org.springframework.web.multipart.MultipartFile;
+
 import lombok.Data;
 
 @Data
@@ -16,4 +18,14 @@ public class BoardVO {
 	
 	private int replyCnt;
 	
+	private String fileName;
+//	private MultipartFile file;
+	
 }
+
+
+
+
+
+
+
