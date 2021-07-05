@@ -41,10 +41,12 @@ var boardBno = "${board.bno}";
 					name="content"><c:out value="${board.content }" /></textarea>
 				</div>
 				
-				<div>
-					<img class="img-fluid" 
-					src="https://choongang-sebaek1.s3.ap-northeast-2.amazonaws.com/${board.bno }/${board.fileName}">
-				</div>
+				<c:if test="${not empty board.fileName }">
+					<div>
+						<img class="img-fluid" 
+						src="${imgRoot}${board.bno }/${board.fileName}">
+					</div>
+				</c:if>
 				
 				<div class="form-group">
 					<label for="input2">작성자</label>
