@@ -3,15 +3,23 @@
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
 
 <c:url value="/board/list" var="listUrl">
+	<c:if test="${not empty cri.pageNum }">
 		<c:param name="pageNum" value="${cri.pageNum }"></c:param>
+	</c:if>
+	<c:if test="${not empty cri.amount }">
 		<c:param name="amount" value="${cri.amount }"></c:param>
+	</c:if>
 		<c:param name="keyword" value="${cri.keyword }"></c:param>
 		<c:param name="type" value="${cri.type }"></c:param>
 </c:url>
 
 <c:url value="/board/register" var="registerUrl">
+	<c:if test="${not empty cri.pageNum }">
 		<c:param name="pageNum" value="${cri.pageNum }"></c:param>
+	</c:if>
+	<c:if test="${not empty cri.amount }">
 		<c:param name="amount" value="${cri.amount }"></c:param>
+	</c:if>
 		<c:param name="keyword" value="${cri.keyword }"></c:param>
 		<c:param name="type" value="${cri.type }"></c:param>
 </c:url>
