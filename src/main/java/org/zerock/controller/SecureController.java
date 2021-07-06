@@ -28,3 +28,9 @@ public class SecureController {
 		return "멤버만 접근 가능 경로";
 	}
 }
+
+
+
+
+
+
