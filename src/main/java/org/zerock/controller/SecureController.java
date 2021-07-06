@@ -27,7 +27,26 @@ public class SecureController {
 
 		return "멤버만 접근 가능 경로";
 	}
+	
+	
+	@GetMapping(value = "/admin", produces = "text/plain;charset=utf-8")
+	@ResponseBody
+	public String doAdmin() {
+		log.info("secure admin method");
+		
+		return "어드민만 접근 가능 경로";
+	}
 }
+
+
+
+
+
+
+
+
+
+
 
 
 
