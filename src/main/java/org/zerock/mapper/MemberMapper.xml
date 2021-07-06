@@ -18,6 +18,52 @@
   	VALUES
   	(#{userid}, #{auth})
   </insert>
+  
+  
+  <select id="read" resultMap="memberMap">
+  SELECT 
+	m.userid userid,
+	m.userpw userpw,
+	m.username username,
+	m.enabled enabled,
+	m.regdate regdate,
+	m.updateDate updateDate,
+	a.auth auth
+  FROM 
+    tbl_member m LEFT JOIN tbl_member_auth a ON m.userid = a.userid
+  WHERE
+    m.userid = #{userid}
+  
+  </select>
+  
+  <!-- 책 662쪽 -->
+  <resultMap type="org.zerock.domain.MemberVO" id="memberMap">
+  	<id property="userid" column="userid" />
+  	<result property="userpw" column="userpw" />
+  	<result property="userName" column="username" />
+  	<result property="regdate" column="regdate" />
+  	<result property="updateDate" column="updateDate" />
+  	<collection property="authList" resultMap="authMap" />
+  </resultMap>
+  <resultMap type="org.zerock.domain.AuthVO" id="authMap">
+  	<result property="userid" column="userid" />
+  	<result property="auth" column="auth" />
+  </resultMap>
+  
 </mapper>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 

@@ -39,7 +39,7 @@ public class MemberMapperTests {
 		MemberVO vo1 = new MemberVO();
 		vo1.setUserid("member");
 		vo1.setUserpw(encoder.encode("member")); // encode
-		vo1.setUsername("멤버");
+		vo1.setUserName("멤버");
 		
 		mapper.insert(vo1);
 	}
@@ -49,7 +49,7 @@ public class MemberMapperTests {
 		MemberVO vo1 = new MemberVO();
 		vo1.setUserid("admin");
 		vo1.setUserpw(encoder.encode("admin")); // encode
-		vo1.setUsername("어드민");
+		vo1.setUserName("어드민");
 		
 		mapper.insert(vo1);
 	}
