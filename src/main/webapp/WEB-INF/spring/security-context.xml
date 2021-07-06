@@ -10,5 +10,13 @@
 		<security:intercept-url pattern="/secure/member" access="hasRole('ROLE_MEMBER')"/>
 		<security:form-login/>
 	</security:http>
+	
+	<security:authentication-manager>
+		<security:authentication-provider>
+			<security:user-service>
+				<security:user name="member" password="member" authorities="ROLE_MEMBER"/>
+			</security:user-service>
+		</security:authentication-provider>
+	</security:authentication-manager>
 
 </beans>
