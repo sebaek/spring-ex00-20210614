@@ -1,6 +1,8 @@
 package org.zerock.mapper;
 
+import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotNull;
+import static org.junit.Assert.assertTrue;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -8,7 +10,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
-import org.zerock.domain.AuthVO;
 import org.zerock.domain.MemberVO;
 
 import lombok.Setter;
@@ -70,6 +71,16 @@ public class MemberMapperTests {
 		vo1.setUserid("admin");
 		mapper.insertAuth(vo1);
 		*/
+	}
+	
+	@Test
+	public void testRead() {
+		MemberVO vo = mapper.read("admin");
+		
+		assertEquals(2, vo.getAuthList().size());
+		assertEquals("admin", vo.getUserid());
+		assertEquals("어드민", vo.getUserName());
+		assertTrue(encoder.matches("admin", vo.getUserpw()));
 	}
 }
 
