@@ -8,6 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
+import org.zerock.domain.MemberVO;
 
 import lombok.Setter;
 import lombok.extern.log4j.Log4j;
@@ -32,7 +33,35 @@ public class MemberMapperTests {
 		assertNotNull(encoder);
 	}
 
+	@Test(expected = Exception.class)
+	public void testInsert1() {
+		MemberVO vo1 = new MemberVO();
+		vo1.setUserid("member");
+		vo1.setUserpw(encoder.encode("member")); // encode
+		vo1.setUsername("멤버");
+		
+		mapper.insert(vo1);
+	}
+	
+	@Test(expected = Exception.class)
+	public void testInsert2() {
+		MemberVO vo1 = new MemberVO();
+		vo1.setUserid("admin");
+		vo1.setUserpw(encoder.encode("admin")); // encode
+		vo1.setUsername("어드민");
+		
+		mapper.insert(vo1);
+	}
 }
+
+
+
+
+
+
+
+
+
 
 
 
