@@ -15,7 +15,7 @@
 <bd:navbar></bd:navbar>
 <div class="container">
 	<div class="row justify-content-center">
-		<div class="col-md-12 col-6">
+		<div class="col-md-6 col-12">
 			<h1>로그인</h1>
 			<form action="${appRoot }/login" method="post">
 				<div class="form-group">

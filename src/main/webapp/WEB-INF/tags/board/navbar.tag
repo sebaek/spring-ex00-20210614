@@ -42,6 +42,10 @@
     </ul>
   </div>
   
+  <form action="${appRoot }/logout" method="post">
+  	<input type="submit" class="btn btn-outline-secondary" value="로그아웃">
+  </form>
+  
   <form action="${listUrl }" method="get" class="form-inline">
   	<select name="type" class="form-control mr-sm-2">
   		<option value="">--</option>

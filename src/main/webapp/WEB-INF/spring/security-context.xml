@@ -10,6 +10,7 @@
 		<security:intercept-url pattern="/secure/member" access="hasRole('ROLE_MEMBER')"/>
 		<security:intercept-url pattern="/secure/admin" access="hasRole('ROLE_ADMIN')"/>
 		<security:form-login login-page="/member/login"/>
+		<security:logout/>
 		<security:csrf disabled="true"/>
 	</security:http>
 	
