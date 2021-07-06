@@ -30,6 +30,15 @@
       <li class="nav-item">
         <a class="nav-link" href="${registerUrl }"><i class="fas fa-pen"></i> 글쓰기</a>
       </li>
+      <li class="nav-item">
+        <a class="nav-link" href="${appRoot}/secure/all">모두</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="${appRoot}/secure/member">멤버만</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="${appRoot }/secure/admin">어드민만</a>
+      </li>
     </ul>
   </div>
   

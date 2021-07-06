@@ -9,7 +9,8 @@
 		<security:intercept-url pattern="/secure/all" access="permitAll"/>
 		<security:intercept-url pattern="/secure/member" access="hasRole('ROLE_MEMBER')"/>
 		<security:intercept-url pattern="/secure/admin" access="hasRole('ROLE_ADMIN')"/>
-		<security:form-login/>
+		<security:form-login login-page="/member/login"/>
+		<security:csrf disabled="true"/>
 	</security:http>
 	
 	<security:authentication-manager>
