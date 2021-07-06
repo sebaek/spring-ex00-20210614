@@ -15,3 +15,12 @@ CREATE TABLE tbl_member_auth (
     auth VARCHAR(50) NOT NULL,
     FOREIGN KEY (userid) REFERENCES tbl_member(userid)
 );
+
+SELECT * FROM tbl_member;
+
+
+
+
+
+
+
