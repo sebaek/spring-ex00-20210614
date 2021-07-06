@@ -8,6 +8,9 @@
 	<bean id="bcryptPasswordEncoder" 
 	class="org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder" />
 
+	<bean id="customUserDetailsService"
+	class="org.zerock.security.CustomUserDetailsService"></bean>
+
 	<security:http>
 		<security:intercept-url pattern="/secure/all" access="permitAll"/>
 		<security:intercept-url pattern="/secure/member" access="hasRole('ROLE_MEMBER')"/>
@@ -16,7 +19,13 @@
 		<security:logout/>
 		<security:csrf disabled="true"/>
 	</security:http>
-	
+
+	<security:authentication-manager>
+		<security:authentication-provider user-service-ref="customUserDetailsService">
+			<security:password-encoder ref="bcryptPasswordEncoder"/>
+		</security:authentication-provider>
+	</security:authentication-manager>	
+	<!--  
 	<security:authentication-manager>
 		<security:authentication-provider>
 			<security:user-service>
@@ -25,5 +34,6 @@
 			</security:user-service>
 		</security:authentication-provider>
 	</security:authentication-manager>
+	 -->
 
 </beans>

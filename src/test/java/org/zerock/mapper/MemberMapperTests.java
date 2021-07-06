@@ -81,6 +81,7 @@ public class MemberMapperTests {
 		assertEquals("admin", vo.getUserid());
 		assertEquals("어드민", vo.getUserName());
 		assertTrue(encoder.matches("admin", vo.getUserpw()));
+		assertTrue(vo.isEnabled());
 	}
 }
 

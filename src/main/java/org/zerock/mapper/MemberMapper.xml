@@ -43,6 +43,7 @@
   	<result property="userName" column="username" />
   	<result property="regdate" column="regdate" />
   	<result property="updateDate" column="updateDate" />
+  	<result property="enabled" column="enabled" />
   	<collection property="authList" resultMap="authMap" />
   </resultMap>
   <resultMap type="org.zerock.domain.AuthVO" id="authMap">
