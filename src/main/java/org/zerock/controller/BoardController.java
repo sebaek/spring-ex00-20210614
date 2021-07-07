@@ -84,7 +84,8 @@ public class BoardController {
 	}
 
 	@PostMapping("/modify")
-	@PreAuthorize("isAuthenticated()")
+	@PreAuthorize("principal.username == #board.writer") // 720 쪽
+//	@PreAuthorize("authication.name == #board.writer") // spring.io
 	public String modify(BoardVO board, Criteria cri, 
 			@RequestParam("file") MultipartFile file, RedirectAttributes rttr) {
 		// request parameter 수집
