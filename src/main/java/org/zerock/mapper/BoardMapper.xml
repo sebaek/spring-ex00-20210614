@@ -54,8 +54,10 @@
     	b.writer writer,
     	b.regdate regdate,
     	b.updatedate updateDate,
+    	m.username writerName,
     	count(r.rno) replyCnt
      FROM tbl_board b LEFT JOIN tbl_reply r ON b.bno = r.bno
+                     INNER JOIN tbl_member m ON b.writer = m.userid
 
 	<include refid="criteria"></include>
 	 GROUP BY b.bno
