@@ -1,6 +1,7 @@
 <%@ tag language="java" pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
+<%@ taglib prefix="sec" uri="http://www.springframework.org/security/tags" %>
 
 <c:url value="/board/list" var="listUrl">
 	<c:if test="${not empty cri.pageNum }">
@@ -50,9 +51,11 @@
     </ul>
   </div>
   
-  <form action="${appRoot }/logout" method="post">
-  	<input type="submit" class="btn btn-outline-secondary" value="로그아웃">
-  </form>
+  <sec:authorize access="isAuthenticated()">
+	  <form action="${appRoot }/logout" method="post">
+	  	<input type="submit" class="btn btn-outline-secondary" value="로그아웃">
+	  </form>
+  </sec:authorize>
   
   <form action="${listUrl }" method="get" class="form-inline">
   	<select name="type" class="form-control mr-sm-2">
