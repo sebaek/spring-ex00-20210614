@@ -62,7 +62,11 @@ var boardBno = "${board.bno}";
 					<c:param name="keyword" value="${cri.keyword }" />
 				</c:url>
 				
-				<a class="btn btn-secondary" href="${modifyUrl }">수정/삭제</a>
+				<c:if test="${pinfo.member.userid eq board.writer }" >
+					<a class="btn btn-secondary" href="${modifyUrl }">수정/삭제</a>
+				</c:if>
+				
+				
 			</form>
 		</div>
 	</div>
