@@ -52,7 +52,8 @@ var userid = "${pinfo.member.userid}";
 				
 				<div class="form-group">
 					<label for="input2">작성자</label>
-					<input readonly="readonly" id="input2" class="form-control" name="writer" value="${board.writer }">
+					<input type="hidden" readonly="readonly" id="input2" class="form-control" name="writer" value="${board.writer }">
+					<input readonly="readonly" class="form-control" value="${board.writerName }">
 				</div>				
 				
 				<c:url value="/board/modify" var="modifyUrl">
