@@ -10,3 +10,20 @@ create table persistent_logins (
 );
 
 desc persistent_logins;
+
+SELECT * FROM tbl_board;
+SELECT * FROM tbl_member;
+
+UPDATE tbl_board
+SET writer = 'member';
+
+UPDATE tbl_board
+SET writer = 'member';
+
+
+
+
+
+
+
+
