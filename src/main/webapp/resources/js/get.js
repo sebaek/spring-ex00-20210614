@@ -146,12 +146,21 @@
 	/* 삭제 버튼 클릭시 */
 	$("#reply-delete-btn1").click(function () {
 		var check = confirm("삭제 하시겠습니까?");
-		
+
 		if (check) {
 			var rno = $("#reply-rno-input2").val();
+			var replyer = $("#reply-replyer-input2").val();
+			
+			var data = {
+				rno : rno,
+				replyer: replyer
+			}
+
 			$.ajax({
 				type: "delete",
 				url: appRoot + "/replies/" + rno,
+				data : JSON.stringify(data),
+				contentType : "application/json",
 				success: function () {
 					// modal 닫고,
 					$("#reply-modify-modal").modal("hide");
