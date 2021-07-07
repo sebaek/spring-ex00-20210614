@@ -18,6 +18,7 @@
 		<security:form-login login-page="/member/login"/>
 		<security:logout/>
 		<security:csrf disabled="true"/>
+		<security:remember-me data-source-ref="dataSource"/>
 	</security:http>
 
 	<security:authentication-manager>
