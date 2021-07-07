@@ -36,9 +36,11 @@
       <li class="nav-item">
         <a class="nav-link" href="${listUrl }"><i class="fas fa-list"></i> 목록보기</a>
       </li>
+      <sec:authorize access="isAuthenticated()">
       <li class="nav-item">
         <a class="nav-link" href="${registerUrl }"><i class="fas fa-pen"></i> 글쓰기</a>
       </li>
+      </sec:authorize>
       <li class="nav-item">
         <a class="nav-link" href="${appRoot}/secure/all">모두</a>
       </li>

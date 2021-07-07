@@ -15,7 +15,7 @@
 		<security:intercept-url pattern="/secure/all" access="permitAll"/>
 		<security:intercept-url pattern="/secure/member" access="hasRole('ROLE_MEMBER')"/>
 		<security:intercept-url pattern="/secure/admin" access="hasRole('ROLE_ADMIN')"/>
-		<security:form-login login-page="/member/login"/>
+		<security:form-login login-page="/member/login" default-target-url="/board/list"/>
 		<security:logout/>
 		<security:csrf disabled="true"/>
 		<security:remember-me data-source-ref="dataSource"/>
