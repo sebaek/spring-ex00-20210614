@@ -14,6 +14,7 @@
 <script>
 var appRoot = "${appRoot}";
 var boardBno = "${board.bno}";
+var userid = "${pinfo.member.userid}";
 </script>
 <script src="${appRoot }/resources/js/get.js"></script>
 
@@ -148,8 +149,10 @@ var boardBno = "${board.bno}";
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-        <button id="reply-modify-btn1" type="button" class="btn btn-primary">댓글 수정</button>
-        <button id="reply-delete-btn1" type="button" class="btn btn-danger">댓글 삭제</button>
+        <span id="reply-modify-delete-btn-wrapper">
+	        <button id="reply-modify-btn1" type="button" class="btn btn-primary">댓글 수정</button>
+	        <button id="reply-delete-btn1" type="button" class="btn btn-danger">댓글 삭제</button>
+        </span>
       </div>
     </div>
   </div>
