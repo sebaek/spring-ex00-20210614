@@ -110,9 +110,9 @@ public class BoardController {
 	}
 	
 	@PostMapping("/remove")
-	@PreAuthorize("isAuthenticated()")
+	@PreAuthorize("principal.username == #writer") // 720 쪽
 	public String remove(@RequestParam("bno") Long bno,
-			Criteria cri, RedirectAttributes rttr) {
+			Criteria cri, RedirectAttributes rttr, String writer) {
 		// parameter 수집
 		
 		// service 일
