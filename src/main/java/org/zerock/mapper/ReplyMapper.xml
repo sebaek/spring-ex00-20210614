@@ -45,17 +45,18 @@ WHERE rno = #{rno}
 
 <select id="getList" resultType="org.zerock.domain.ReplyVO">
 	SELECT 
-		rno rno,
-		bno bno,
-		reply reply,
-		replyer replyer,
-		replyDate replyDate,
-		updateDate updateDate
+		r.rno rno,
+		r.bno bno,
+		r.reply reply,
+		r.replyer replyer,
+		r.replyDate replyDate,
+		r.updateDate updateDate,
+		m.username replyerName
 	FROM 
-	    tbl_reply
+	    tbl_reply r JOIN tbl_member m ON r.replyer = m.userid
 	WHERE
-	    bno = #{bno}
-	ORDER BY rno ASC
+	    r.bno = #{bno}
+	ORDER BY r.rno ASC
 
 </select>
 

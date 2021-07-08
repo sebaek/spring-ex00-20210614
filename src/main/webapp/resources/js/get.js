@@ -42,7 +42,7 @@
 			var replyHTML = `
 				<li class="media" id="reply${reply.rno}" data-rno="${reply.rno}">
 					<div class="media-body">
-						<h5 class="my-4">${reply.replyer}</h5>
+						<h5 class="my-4">${reply.replyerName}</h5>
 						<p>${reply.reply}</p>
 						<small>${new Date(reply.replyDate).toISOString().split("T")[0]}</small>
 						<hr>
