@@ -76,6 +76,19 @@ public class MemberController {
 		}
 		return "redirect:/member/info";
 	}
+	
+	@PostMapping("/remove")
+	@PreAuthorize("principal.username == #vo.userid")
+	public String remove(MemberVO vo, RedirectAttributes rttr) {
+		boolean ok = service.remove(vo);
+		
+		if (ok) {
+			return "member/remove";
+		} else {
+			rttr.addAttribute("status", "error");
+			return "redirect:/member/info";
+		}
+	}
 }
 
 

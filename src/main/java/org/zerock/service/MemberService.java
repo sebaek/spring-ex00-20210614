@@ -9,5 +9,7 @@ public interface MemberService {
 	MemberVO read(String name);
 
 	boolean modify(MemberVO vo);
+
+	boolean remove(MemberVO vo);
 	
 }

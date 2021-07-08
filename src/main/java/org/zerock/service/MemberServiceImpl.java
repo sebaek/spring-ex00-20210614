@@ -51,7 +51,24 @@ public class MemberServiceImpl implements MemberService {
 		
 		return cnt == 1;
 	}
+	
+	@Override
+	public boolean remove(MemberVO vo) {
+		int cnt = mapper.remove(vo);
+		return cnt == 1;
+	}
 }
+
+
+
+
+
+
+
+
+
+
+
 
 
 

@@ -12,4 +12,6 @@ public interface MemberMapper {
 	public MemberVO read(String userid);
 
 	public int update(MemberVO vo);
+
+	public int remove(MemberVO vo);
 }

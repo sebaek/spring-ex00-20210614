@@ -9,6 +9,21 @@
 
 <%@ include file="/WEB-INF/subModules/bootstrapHeader.jsp" %>
 
+<script>
+$(function() {
+	$("#member-info-remove-btn1").click(function() {
+		var ans = confirm("탈퇴 하시겠습니까?");
+		
+		if (ans) {
+			$("#member-info-form1")
+			 .attr("action", "${appRoot}/member/remove")
+			 .submit();
+		}
+	});
+});
+
+</script>
+
 <title>Insert title here</title>
 </head>
 <body>
@@ -29,21 +44,21 @@
 	<h1>회원 정보</h1>
 	<div class="row">
 		<div class="col-12">
-			<form method="post" action="${appRoot }/member/modify">
+			<form id="member-info-form1" method="post" action="${appRoot }/member/modify">
 				<div class="form-group">
-					<label for="signup-input1">아이디</label>
-					<input readonly value="${member.userid }" type="text" class="form-control" id="signup-input1" name="userid" >
+					<label for="member-info-input1">아이디</label>
+					<input readonly value="${member.userid }" type="text" class="form-control" id="member-info-input1" name="userid" >
 				</div>
 				<div class="form-group">
-					<label for="signup-input2">패스워드</label>
-					<input type="password" class="form-control" id="signup-input2" name="userpw">
+					<label for="member-info-input2">패스워드</label>
+					<input type="password" class="form-control" id="member-info-input2" name="userpw">
 				</div>
 				<div class="form-group">
-					<label for="signup-input3">이름</label>
-					<input value="${member.userName }" type="text" class="form-control" id="signup-input3" name="userName">
+					<label for="member-info-input3">이름</label>
+					<input value="${member.userName }" type="text" class="form-control" id="member-info-input3" name="userName">
 				</div>
-				<button type="submit" class="btn btn-secondary" id="modify-btn1">정보 수정</button>
-				<button type="button" class="btn btn-danger" id="remove-btn1">회원 탈퇴</button>
+				<button type="submit" class="btn btn-secondary" id="member-info-modify-btn1">정보 수정</button>
+				<button type="button" class="btn btn-danger" id="member-info-remove-btn1">회원 탈퇴</button>
 			</form>
 		</div>	
 	</div>
