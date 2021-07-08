@@ -9,6 +9,7 @@
 			success: function (reply) {
 				$("#reply-rno-input2").val(reply.rno);
 				$("#reply-replyer-input2").val(reply.replyer);
+				$("#reply-replyerName-input2").val(reply.replyerName);
 				$("#reply-reply-textarea2").text(reply.reply);
 
 				// 댓글 작성자와 로그인 유저가 같지 않으면 
