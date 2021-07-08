@@ -59,8 +59,26 @@ public class MemberController {
 		model.addAttribute("member", member);
 	}
 	
-	
+	@PostMapping("/modify")
+	@PreAuthorize("principal.username == #vo.userid")
+	public String modify(MemberVO vo) {
+		boolean ok = service.modify(vo);
+		
+		if (ok) {
+			return "redirect:/member/info?success";
+		} else {
+			return "redirect:/member/info?error";
+		}
+	}
 }
+
+
+
+
+
+
+
+
 
 
 

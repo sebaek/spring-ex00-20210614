@@ -19,6 +19,12 @@
 			회원 정보를 수정하였습니다.
 		</div>
 	</c:if>
+	
+	<c:if test="${not empty param.error }">
+		<div id="alert1" class="alert alert-danger" role="alert">
+			회원 정보 수정을 할 수 없습니다.
+		</div>
+	</c:if>
 
 	<h1>회원 정보</h1>
 	<div class="row">

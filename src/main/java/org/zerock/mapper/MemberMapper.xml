@@ -5,6 +5,15 @@
   
 <mapper namespace="org.zerock.mapper.MemberMapper">
 
+  <update id="update">
+  UPDATE tbl_member
+  SET userpw = #{userpw},
+      userName = #{userName}
+  WHERE
+      userid = #{userid}
+  
+  </update>
+
   <insert id="insert">
   	INSERT INTO tbl_member
   	(userid, userpw, username)

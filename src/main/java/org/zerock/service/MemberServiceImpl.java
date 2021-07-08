@@ -41,6 +41,16 @@ public class MemberServiceImpl implements MemberService {
 
 		return mapper.read(name);
 	}
+
+	@Override
+	public boolean modify(MemberVO vo) {
+		
+		vo.setUserpw(encoder.encode(vo.getUserpw()));
+		
+		int cnt = mapper.update(vo);
+		
+		return cnt == 1;
+	}
 }
 
 
