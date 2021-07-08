@@ -44,6 +44,13 @@ public class MemberController {
 			return "redirect:/member/signup?error";
 		}
 	}
+	
+	@GetMapping("/info")
+	public void info(Criteria cri) {
+		
+	}
+	
+	
 }
 
 
