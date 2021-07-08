@@ -61,14 +61,15 @@ public class MemberController {
 	
 	@PostMapping("/modify")
 	@PreAuthorize("principal.username == #vo.userid")
-	public String modify(MemberVO vo) {
+	public String modify(MemberVO vo, RedirectAttributes rttr) {
 		boolean ok = service.modify(vo);
 		
 		if (ok) {
-			return "redirect:/member/info?success";
+			rttr.addAttribute("status", "success");
 		} else {
-			return "redirect:/member/info?error";
+			rttr.addAttribute("status", "error");
 		}
+		return "redirect:/member/info";
 	}
 }
 

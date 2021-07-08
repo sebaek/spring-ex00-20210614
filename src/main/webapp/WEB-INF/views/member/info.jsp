@@ -14,13 +14,13 @@
 <body>
 <bd:navbar></bd:navbar>
 <div class="container">
-	<c:if test="${not empty param.success }">
+	<c:if test="${param.status == 'success' }">
 		<div id="alert1" class="alert alert-primary" role="alert">
 			회원 정보를 수정하였습니다.
 		</div>
 	</c:if>
 	
-	<c:if test="${not empty param.error }">
+	<c:if test="${param.status == 'error' }">
 		<div id="alert1" class="alert alert-danger" role="alert">
 			회원 정보 수정을 할 수 없습니다.
 		</div>
