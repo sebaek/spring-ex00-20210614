@@ -52,6 +52,7 @@
         <a class="nav-link" href="${registerUrl }"><i class="fas fa-pen"></i> 글쓰기</a>
       </li>
       </sec:authorize>
+      <%-- security 연습용
       <li class="nav-item">
         <a class="nav-link" href="${appRoot}/secure/all">모두</a>
       </li>
@@ -61,6 +62,7 @@
       <li class="nav-item">
         <a class="nav-link" href="${appRoot }/secure/admin">어드민만</a>
       </li>
+       --%>
       
 	  <sec:authorize access="!isAuthenticated()">
 	  	<li class="nav-item">
@@ -69,6 +71,10 @@
 	  </sec:authorize>
     </ul>
   </div>
+  
+  <sec:authorize access="!isAuthenticated()">
+	<a href="${appRoot }/member/login" class="btn btn-outline-primary">로그인</a>  
+  </sec:authorize>
   
   <sec:authorize access="isAuthenticated()">
 	  <form action="${appRoot }/logout" method="post">
