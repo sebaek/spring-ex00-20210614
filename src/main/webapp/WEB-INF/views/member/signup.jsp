@@ -14,6 +14,12 @@
 <body>
 <bd:navbar></bd:navbar>
 <div class="container">
+	<c:if test="${not empty param.error }">
+		<div id="alert1" class="alert alert-danger" role="alert">
+			회원 가입에 실패하였습니다.
+		</div>
+	</c:if>
+
 	<h1>회원 가입</h1>
 	<div class="row">
 		<div class="col-12">

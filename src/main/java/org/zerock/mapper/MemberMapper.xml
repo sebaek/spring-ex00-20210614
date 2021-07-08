@@ -9,7 +9,7 @@
   	INSERT INTO tbl_member
   	(userid, userpw, username)
   	VALUES 
-  	(#{userid}, #{userpw}, #{username})
+  	(#{userid}, #{userpw}, #{userName})
   </insert>
   
   <insert id="insertAuth">
