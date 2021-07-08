@@ -15,6 +15,14 @@ DELETE FROM tbl_board_file
 WHERE bno = #{bno}
 </delete>
 
+<delete id="removeByUserid">
+DELETE FROM tbl_board_file
+WHERE bno IN (
+	SELECT bno FROM tbl_board
+	WHERE writer = #{userid}
+)
+</delete>
+
 </mapper>
 
 

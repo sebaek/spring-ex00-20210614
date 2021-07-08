@@ -5,6 +5,11 @@
   
 <mapper namespace="org.zerock.mapper.MemberMapper">
 
+	<delete id="removeAuth">
+	DELETE FROM tbl_member_auth
+	WHERE userid = #{userid}
+	</delete>
+
 	<delete id="remove">
 	DELETE FROM tbl_member
 	WHERE userid = #{userid}
