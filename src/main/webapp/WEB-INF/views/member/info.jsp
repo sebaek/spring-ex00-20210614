@@ -41,6 +41,19 @@ $(function() {
 		}
 	});
 	
+	// 패스워드 보이기 안보이기 토글
+	$("#toggle-password-btn").click(function() {
+		var inputElem = $("#member-info-input2")
+		
+		if (inputElem.attr("type") == "password") {
+			inputElem.attr("type", "text");
+			inputElem.find("i").removeClass("fa-eye").addClass("fa-eye-slash");
+		} else {
+			inputElem.attr("type", "password");
+			inputElem.find("i").removeClass("fa-eye-slash").addClass("fa-eye");
+		}
+	});
+	
 });
 
 </script>
@@ -72,7 +85,19 @@ $(function() {
 				</div>
 				<div class="form-group">
 					<label for="member-info-input2">새 패스워드</label>
-					<input type="password" class="form-control" id="member-info-input2" name="userpw">
+					
+					<div class="input-group">
+						<input type="password" class="form-control" id="member-info-input2" name="userpw">
+						<div class="input-group-append">
+							<button class="btn btn-outline-secondary"
+							        type="button"
+							        id="toggle-password-btn">
+							        
+							        <i class="far fa-eye"></i>
+							        
+							        </button> 
+						</div>
+					</div>
 				</div>
 				<div class="form-group">
 					<label for="member-info-input4">새 패스워드 확인</label>
