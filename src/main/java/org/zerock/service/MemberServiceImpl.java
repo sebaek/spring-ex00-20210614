@@ -55,6 +55,17 @@ public class MemberServiceImpl implements MemberService {
 
 		return mapper.read(name);
 	}
+	
+	@Override
+	public boolean modify(MemberVO vo, String oldPassword) {
+		MemberVO old = mapper.read(vo.getUserid());
+		
+		if (encoder.matches(oldPassword, old.getUserpw())) {
+			return modify(vo);
+		}
+		
+		return false;
+	}
 
 	@Override
 	public boolean modify(MemberVO vo) {
@@ -64,6 +75,15 @@ public class MemberServiceImpl implements MemberService {
 		int cnt = mapper.update(vo);
 		
 		return cnt == 1;
+	}
+	@Override
+	public boolean remove(MemberVO vo, String oldPassword) {
+		MemberVO old = mapper.read(vo.getUserid());
+		if (encoder.matches(oldPassword, old.getUserpw())) {
+			return remove(vo);
+		}
+		
+		return false;
 	}
 	
 	@Override
