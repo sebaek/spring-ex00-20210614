@@ -12,14 +12,20 @@
 <title>Insert title here</title>
 <script>
 $(function() {
+	var canUseId = false;
+	var passwordConfirm = false;
+	
 	// 아이디 중복 확인
 	$("#id-dup-btn").click(function() {
 		var idVal = $("#signup-input1").val();
 		var messageElem = $("#id-message");
+		canUseId = false;
+		toggleEnableSubmit();
 		
 		if (idVal == "") {
 			// 아이디가 입력되지 않았을 때
 			messageElem.text("아이디를 입력해주세요.");
+			
 			
 		} else {
 			// 아이디가 입력되어있을 때
@@ -31,11 +37,14 @@ $(function() {
 				success: function (data) {
 					if (data == "success") {
 						console.log("사용 가능한 아이디");
+						canUseId = true;
 						messageElem.text("사용가능한 아이디 입니다.");			
 					} else if (data == "exist") {
 						console.log("사용 불가능한 아이디");
 						messageElem.text("이미 있는 아이디 입니다.");
 					}
+					
+					toggleEnableSubmit();
 				}, 
 				error: function() {
 					console.log("아이디 중복 체크 실패");
@@ -51,21 +60,31 @@ $(function() {
 		var pw1 = $("#signup-input2").val();
 		var pw2 = $("#signup-input4").val();
 		var submitBtn = $("#signup-btn1");
+		passwordConfirm = false;
 		
 		if (pw1 != pw2) {
-			submitBtn.attr("disabled", "disabled");
 			$("#password-message").text("패스워드가 일치하지 않습니다.");	
 		} else {
 			if (pw1 == "") {
-				submitBtn.attr("disabled", "disabled");
 				$("#password-message").text("패스워드를 입력해주세요.");
 			} else {
-				submitBtn.removeAttr("disabled");
+				passwordConfirm = true;
 				$("#password-message").empty();
 			}
 			
 		}
+		
+		// submit 버튼 disable/enalbe 토글
+		toggleEnableSubmit();
 	});
+	
+	function toggleEnableSubmit() {
+		if (passwordConfirm && canUseId) {
+			$("#signup-btn1").removeAttr("disabled");
+		} else {
+			$("#signup-btn1").attr("disabled", "disabled");
+		}
+	}
 });
 
 </script>
