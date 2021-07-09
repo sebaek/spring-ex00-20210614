@@ -10,6 +10,23 @@
 <%@ include file="/WEB-INF/subModules/bootstrapHeader.jsp" %>
 
 <title>Insert title here</title>
+<script>
+$(function() {
+	$("#signup-input2, #signup-input4").keyup(function() {
+		var pw1 = $("#signup-input2").val();
+		var pw2 = $("#signup-input4").val();
+		
+		if (pw1 != pw2) {
+			$("#password-message").text("패스워드가 일치하지 않습니다.");	
+		} else {
+			$("#password-message").empty();
+		}
+	});
+});
+
+</script>
+
+
 </head>
 <body>
 <bd:navbar></bd:navbar>
@@ -31,6 +48,11 @@
 				<div class="form-group">
 					<label for="signup-input2">패스워드</label>
 					<input type="password" class="form-control" id="signup-input2" name="userpw">
+				</div>
+				<div class="form-group">
+					<label for="signup-input4">패스워드 확인</label>
+					<input type="password" class="form-control" id="signup-input4">
+					<small id="password-message" class="form-text text-danger"></small>
 				</div>
 				<div class="form-group">
 					<label for="signup-input3">이름</label>
