@@ -6,6 +6,8 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.security.core.Authentication;
 import org.springframework.stereotype.Controller;
@@ -13,6 +15,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 import org.zerock.domain.Criteria;
 import org.zerock.domain.MemberVO;
@@ -92,6 +95,22 @@ public class MemberController {
 			rttr.addAttribute("status", "error");
 			return "redirect:/member/info";
 		}
+	}
+	
+	@GetMapping("/dup")
+	@ResponseBody
+	public ResponseEntity<String> duplicate(String id) {
+		log.info("duplicate method");
+		
+		// 서비스 일 시키고
+		MemberVO vo = service.read(id);
+		
+		if (vo == null) {
+			return new ResponseEntity<>("success", HttpStatus.OK);
+		} else {
+			return new ResponseEntity<> ("exist", HttpStatus.OK);
+		}
+		
 	}
 }
 
