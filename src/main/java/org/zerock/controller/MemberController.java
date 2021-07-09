@@ -2,6 +2,9 @@ package org.zerock.controller;
 
 import java.security.Principal;
 
+import javax.servlet.ServletException;
+import javax.servlet.http.HttpServletRequest;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.security.core.Authentication;
@@ -79,11 +82,12 @@ public class MemberController {
 	
 	@PostMapping("/remove")
 	@PreAuthorize("principal.username == #vo.userid")
-	public String remove(MemberVO vo, RedirectAttributes rttr) {
+	public String remove(MemberVO vo, RedirectAttributes rttr, HttpServletRequest req) throws ServletException {
 		boolean ok = service.remove(vo);
 		
 		if (ok) {
-			return "member/remove";
+			req.logout();
+			return "redirect:/board/list";
 		} else {
 			rttr.addAttribute("status", "error");
 			return "redirect:/member/info";
