@@ -20,6 +20,19 @@ $(function() {
 			 .submit();
 		}
 	});
+	
+	// 패스워드 확인
+	$("#member-info-input2, #member-info-input4").keyup(function() {
+		var pw1 = $("#member-info-input2").val();
+		var pw2 = $("#member-info-input4").val();
+		
+		if (pw1 != pw2) {
+			$("#member-info-password-message").text("패스워드가 일치하지 않습니다.");
+		} else {
+			$("#member-info-password-message").empty();
+		}
+	});
+	
 });
 
 </script>
@@ -50,9 +63,15 @@ $(function() {
 					<input readonly value="${member.userid }" type="text" class="form-control" id="member-info-input1" name="userid" >
 				</div>
 				<div class="form-group">
-					<label for="member-info-input2">패스워드</label>
+					<label for="member-info-input2">새 패스워드</label>
 					<input type="password" class="form-control" id="member-info-input2" name="userpw">
 				</div>
+				<div class="form-group">
+					<label for="member-info-input4">새 패스워드 확인</label>
+					<input type="password" class="form-control" id="member-info-input4">
+					<small id="member-info-password-message" class="form-text text-danger"></small>
+				</div>
+				
 				<div class="form-group">
 					<label for="member-info-input3">이름</label>
 					<input value="${member.userName }" type="text" class="form-control" id="member-info-input3" name="userName">
