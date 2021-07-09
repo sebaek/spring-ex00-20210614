@@ -15,11 +15,20 @@ $(function() {
 	$("#signup-input2, #signup-input4").keyup(function() {
 		var pw1 = $("#signup-input2").val();
 		var pw2 = $("#signup-input4").val();
+		var submitBtn = $("#signup-btn1");
 		
 		if (pw1 != pw2) {
+			submitBtn.attr("disabled", "disabled");
 			$("#password-message").text("패스워드가 일치하지 않습니다.");	
 		} else {
-			$("#password-message").empty();
+			if (pw1 == "") {
+				submitBtn.attr("disabled", "disabled");
+				$("#password-message").text("패스워드를 입력해주세요.");
+			} else {
+				submitBtn.removeAttr("disabled");
+				$("#password-message").empty();
+			}
+			
 		}
 	});
 });
@@ -58,7 +67,7 @@ $(function() {
 					<label for="signup-input3">이름</label>
 					<input type="text" class="form-control" id="signup-input3" name="userName">
 				</div>
-				<button type="submit" class="btn btn-primary" id="signup-btn1">회원 가입</button>
+				<button disabled type="submit" class="btn btn-primary" id="signup-btn1">회원 가입</button>
 			</form>
 		</div>	
 	</div>
