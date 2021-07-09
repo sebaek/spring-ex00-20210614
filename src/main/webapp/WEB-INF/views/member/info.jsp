@@ -47,10 +47,10 @@ $(function() {
 		
 		if (inputElem.attr("type") == "password") {
 			inputElem.attr("type", "text");
-			inputElem.find("i").removeClass("fa-eye").addClass("fa-eye-slash");
+			$("#toggle-password-icon").removeClass("fa-eye").addClass("fa-eye-slash");
 		} else {
 			inputElem.attr("type", "password");
-			inputElem.find("i").removeClass("fa-eye-slash").addClass("fa-eye");
+			$("#toggle-password-icon").removeClass("fa-eye-slash").addClass("fa-eye");
 		}
 	});
 	
@@ -93,7 +93,7 @@ $(function() {
 							        type="button"
 							        id="toggle-password-btn">
 							        
-							        <i class="far fa-eye"></i>
+							        <i id="toggle-password-icon" class="far fa-eye"></i>
 							        
 							        </button> 
 						</div>
