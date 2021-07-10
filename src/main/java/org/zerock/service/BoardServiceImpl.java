@@ -20,7 +20,6 @@ import lombok.Setter;
 import software.amazon.awssdk.auth.credentials.ProfileCredentialsProvider;
 import software.amazon.awssdk.core.sync.RequestBody;
 import software.amazon.awssdk.profiles.ProfileFile;
-import software.amazon.awssdk.profiles.ProfileFileSystemSetting;
 import software.amazon.awssdk.services.s3.S3Client;
 import software.amazon.awssdk.services.s3.model.DeleteObjectRequest;
 import software.amazon.awssdk.services.s3.model.ObjectCannedACL;
@@ -45,6 +44,12 @@ public class BoardServiceImpl implements BoardService {
 	public BoardServiceImpl() {
 		this.bucketName = "choongang-sebaek1";
 		this.profileName = "spring1";
+		
+		/*  
+		 * create
+		 *  /home/tomcat/.aws/credentials
+		 */
+		
 		Path contentLocation = new File(System.getProperty("user.home") + "/.aws/credentials").toPath();
 		ProfileFile pf = ProfileFile.builder()
 				.content(contentLocation)
