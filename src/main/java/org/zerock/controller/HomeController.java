@@ -1,5 +1,6 @@
 package org.zerock.controller;
 
+import java.io.File;
 import java.text.DateFormat;
 import java.util.Date;
 import java.util.Locale;
@@ -33,6 +34,9 @@ public class HomeController {
 	public String home(Locale locale, Model model) {
 		logger.info("Welcome home! The client locale is {}.", locale);
 		logger.info(chef.toString());
+		
+		logger.info(new File("/~").getAbsolutePath());
+		logger.info(System.getProperty("user.home"));
 		
 		Date date = new Date();
 		DateFormat dateFormat = DateFormat.getDateTimeInstance(DateFormat.LONG, DateFormat.LONG, locale);
